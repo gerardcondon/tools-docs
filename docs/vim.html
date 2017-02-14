@@ -1,0 +1,248 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>VIM | </title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.5.2">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="./tmux.html" />
+    
+    
+    <link rel="prev" href="./index.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="1" data-chapter-title="VIM" data-filepath="vim.md" data-basepath="." data-revision="Tue Feb 14 2017 22:12:04 GMT+0000 (UTC)">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="1" data-path="vim.html">
+            
+                
+                    <a href="./vim.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        VIM
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="tmux.html">
+            
+                
+                    <a href="./tmux.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Tmux
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" ></a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="vim">VIM</h1>
+<h2 id="books">Books</h2>
+<ul>
+<li><a href="https://www.amazon.com/Practical-Vim-Edit-Speed-Thought/dp/1680501275/ref=dp_ob_title_bk" target="_blank">https://www.amazon.com/Practical-Vim-Edit-Speed-Thought/dp/1680501275/ref=dp_ob_title_bk</a></li>
+<li><a href="https://vim.swaroopch.com/" target="_blank">https://vim.swaroopch.com/</a></li>
+</ul>
+<h2 id="videos">Videos</h2>
+<ul>
+<li><a href="https://vimeo.com/album/2838732" target="_blank">https://vimeo.com/album/2838732</a></li>
+<li><a href="https://www.youtube.com/watch?v=rfl9KQb_HVk" target="_blank">https://www.youtube.com/watch?v=rfl9KQb_HVk</a></li>
+</ul>
+<h2 id="cheatsheets">Cheatsheets</h2>
+<ul>
+<li><a href="https://vim.rtorr.com/" target="_blank">https://vim.rtorr.com/</a></li>
+</ul>
+<h2 id="c">C++</h2>
+<ul>
+<li><a href="http://www.alexeyshmalko.com/2014/using-vim-as-c-cpp-ide/" target="_blank">http://www.alexeyshmalko.com/2014/using-vim-as-c-cpp-ide/</a></li>
+<li><a href="http://stackoverflow.com/questions/4237817/help-with-configuring-vim-for-c" target="_blank">http://stackoverflow.com/questions/4237817/help-with-configuring-vim-for-c</a></li>
+</ul>
+<h2 id="plugins">Plugins</h2>
+<ul>
+<li><a href="https://valloric.github.io/YouCompleteMe/" target="_blank">You complete Me</a></li>
+</ul>
+<h2 id="a-byte-of-vim">A Byte of VIM</h2>
+<ul>
+<li>Multiple modes - aim to make mouse redundant so switch navigation to a mode<ul>
+<li>insert mode for text entry</li>
+<li>normal mode for running commands (rewriting, editing)</li>
+<li>visual mode to visually select text</li>
+</ul>
+</li>
+</ul>
+<h3 id="commands">Commands</h3>
+<ul>
+<li><code>:e &lt;name&gt;</code> - edit a file &amp; create it if it doesn&apos;t exist</li>
+<li><code>:w</code> - write (save) a file</li>
+<li><code>:q</code> - quit editor</li>
+<li><code>/query</code> - search for the next occurence of query</li>
+<li><code>:help</code> - open the vim help</li>
+</ul>
+<h3 id="beginning-to-edit">Beginning to edit</h3>
+<ul>
+<li><code>I</code> - go to the start of the line and enter insert mode</li>
+<li><code>i</code> - switch to insert mode before the current postion</li>
+<li><code>A</code> - go to the end of the line and enter insert mode</li>
+<li><code>a</code> - switch to insert mode after the current position</li>
+<li><code>O</code> - open a new line above the current line and enter insert mode</li>
+<li><code>o</code> - open a new line below the current line and enter insert mode.</li>
+<li><code>S</code> - substitute the entire line for a new one</li>
+<li><code>s</code> - substitute the current character for a new one and stay in insert mode.</li>
+<li><code>r</code> - replace the current character and go back to normal mode</li>
+<li><code>R</code> - replace continuous characters and go back to normal mode</li>
+</ul>
+<h3 id="navigation">Navigation</h3>
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="http://www.glump.net/files/2012/08/vi-vim-cheat-sheet-and-tutorial.pdf" target="_blank">http://www.glump.net/files/2012/08/vi-vim-cheat-sheet-and-tutorial.pdf</a></li>
+</ul>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./index.html" class="navigation navigation-prev " aria-label="Previous page: Introduction"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./tmux.html" class="navigation navigation-next " aria-label="Next page: Tmux"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
