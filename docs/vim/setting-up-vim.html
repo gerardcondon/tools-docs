@@ -1,0 +1,381 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Setting up · Tools Documentation</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="author" content="Gerard Condon">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="vim-usage.html" />
+    
+    
+    <link rel="prev" href="readme.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://www.gerardcondon.com" target="_blank" class="custom-link">Gerard Condon</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://github.com/gerardcondon/tools-docs" target="_blank" class="custom-link">Github</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="readme.html">
+            
+                <a href="readme.html">
+            
+                    
+                    VIM
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.1" data-path="setting-up-vim.html">
+            
+                <a href="setting-up-vim.html">
+            
+                    
+                    Setting up
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="vim-usage.html">
+            
+                <a href="vim-usage.html">
+            
+                    
+                    Usage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="vim-resources.html">
+            
+                <a href="vim-resources.html">
+            
+                    
+                    Resources
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../tmux.html">
+            
+                <a href="../tmux.html">
+            
+                    
+                    Tmux
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Setting up</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="setting-up-vim">Setting Up VIM</h1>
+<p>This document details the steps I take to set up my personal VIM environment.</p>
+<h3 id="installation">Installation</h3>
+<ul>
+<li>First step is to install VIM.<ul>
+<li>On Linux this is usually pre-installed but you can use a package manager like <a href="https://fedoraproject.org/wiki/Yum" target="_blank">yum</a> or <a href="https://en.wikipedia.org/wiki/Advanced_Packaging_Tool" target="_blank">apt-get</a> to update it.</li>
+<li>On Windows you can install <a href="http://www.vim.org/download.php" target="_blank">gVim</a>.</li>
+</ul>
+</li>
+<li>If the version of VIM on the package manager is very old then you can build it yourself. Or if you need extra features to be built in then you need to do this. The process is relatively straightforward<ul>
+<li>Check out the repository from <a href="https://github.com/vim/vim" target="_blank">Github</a></li>
+<li>Run <code>./configure</code> in src if you need to add extra features</li>
+<li>Run <code>make</code> to build vim</li>
+<li>Run <code>sudo make install</code> to install VIM to the system directories</li>
+<li>After this step I needed to run <code>hash -r</code> in the bash shell to force bash to pick up the new VIM.</li>
+</ul>
+</li>
+</ul>
+<h3 id="vimrc-customisation">Vimrc Customisation</h3>
+<ul>
+<li>Create a <code>.vimrc</code> file in your home directory. Any customisations will be put in here. I recommend putting this under source-control. A common practice I&apos;ve seen is for people to have a <a href="https://dotfiles.github.io/" target="_blank">dotfiles</a> repository on <a href="https://github.com/" target="_blank">Github</a>.</li>
+<li>Use four spaces for tabs<pre><code class="lang-vim"><span class="hljs-keyword">filetype</span> plugin <span class="hljs-built_in">indent</span> <span class="hljs-keyword">on</span>
+<span class="hljs-comment">&quot; show existing tab with 4 spaces width</span>
+<span class="hljs-keyword">set</span> tabstop=<span class="hljs-number">4</span>
+<span class="hljs-comment">&quot; when indenting with &apos;&gt;&apos;, use 4 spaces width</span>
+<span class="hljs-keyword">set</span> <span class="hljs-built_in">shiftwidth</span>=<span class="hljs-number">4</span>
+<span class="hljs-comment">&quot; On pressing tab, insert 4 spaces</span>
+<span class="hljs-keyword">set</span> expandtab
+</code></pre>
+</li>
+<li>When I updated my VIM I lost syntax highlighting, so to get it back permanently I added <code>syntax enable</code> to my <code>.vimrc</code></li>
+<li>Add a shortcut to mimic the escape key - <a href="http://learnvimscriptthehardway.stevelosh.com/chapters/10.html" target="_blank">http://learnvimscriptthehardway.stevelosh.com/chapters/10.html</a>. I chose <code>jk</code> for this. This advantage here is that your fingers don&apos;t need to leave the home keys to enter normal mode.</li>
+</ul>
+<h3 id="vundle">Vundle</h3>
+<ul>
+<li><a href="https://github.com/VundleVim/Vundle.vim" target="_blank">Vundle</a> is a package manager for VIM. This should make managing VIM plugins a lot easier.<ul>
+<li>Clone the repository from git</li>
+<li>Add the required lines from the website to the .vimrc</li>
+<li>Start VIM and run <code>:PluginInstall</code>. This will install the plugins specified in the <code>.vimrc</code> file.</li>
+</ul>
+</li>
+</ul>
+<h3 id="nerdtree">NerdTree</h3>
+<ul>
+<li><a href="https://github.com/scrooloose/nerdtree" target="_blank">Nerdtree</a> is a useful package to view the directory structure as a tree from inside VIM.</li>
+<li>You can install it using Vundle by adding <code>Plugin &apos;scrooloose/nerdtree&apos;</code> to your <code>.vimrc</code> file</li>
+<li>Now you should bind a key to toggle this on and off. To bind Ctrl-n to this add <code>map &lt;C-n&gt; :NERDTreeToggle&lt;CR&gt;</code> to the <code>.vimrc</code>.</li>
+<li>If the file that you&apos;re currently looking at is modified then NerdTree will open additional files in a new split buffer. Otherwise it will just use the existing buffer.</li>
+<li>Press <code>r</code> to refresh the current directory listing in Nerdtree.</li>
+</ul>
+<h3 id="ctags">CTags</h3>
+<ul>
+<li>Install <a href="http://ctags.sourceforge.net/" target="_blank">ctags</a> on your system</li>
+<li>There are a number of <a href="http://ctags.sourceforge.net/faq.html#15" target="_blank">ways</a> to manage tags files. For example, you can have a global file or have a tags file at each level of the directory structure. I&apos;ve chosen to have a single file in a folder outside source control.</li>
+<li>You can manually manage the tags files and rebuilding these. However this can get complicated. I&apos;ve chosen to use a plugin <a href="https://github.com/xolox/vim-easytags" target="_blank">EasyTags</a> to help with this. This <a href="https://codeyarns.com/2015/03/21/easytags-plugin-for-vim/" target="_blank">page</a> has more information on using EasyTags.</li>
+<li>EasyTags will rebuild the tags for the current file when the cursor is inactive for a while.</li>
+<li>To set it up add these lines to the <code>.vimrc</code><pre><code>  Plugin &apos;xolox/vim-easytags&apos;
+  Plugin &apos;xolox/vim-misc&apos;
+</code></pre></li>
+<li>To force a rebuild of the tags for the current file run <code>UpdateTags</code></li>
+<li>For the initial setup you will need to generate tags for the entire codebase so run <code>UpdateTags -R &lt;path-to-root-folder&gt;</code></li>
+<li>EasyTags is fairly slow for large projects to to fix this I enabled async mode by adding these lines to my <code>.vimrc</code><pre><code class="lang-vim"><span class="hljs-keyword">let</span> <span class="hljs-variable">g:easytags_async</span>=<span class="hljs-number">1</span>
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:easytags_auto_highlight</span> = <span class="hljs-number">0</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="autocomplete">Autocomplete</h3>
+<ul>
+<li>Vim has autocomplete for the commands and also the tags pressing <code>U</code>, <code>p</code>, and then tab will fill out the <code>UpdateTags</code> command</li>
+<li>Similarly if I type <code>:tag R</code> this will start autocompleting the tags beginning with <code>R</code>.</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="readme.html" class="navigation navigation-prev " aria-label="Previous page: VIM">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="vim-usage.html" class="navigation navigation-next " aria-label="Next page: Usage">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Setting up","level":"1.2.1","depth":2,"next":{"title":"Usage","level":"1.2.2","depth":2,"path":"vim/vim-usage.md","ref":"vim/vim-usage.md","articles":[]},"previous":{"title":"VIM","level":"1.2","depth":1,"path":"vim/readme.md","ref":"vim/readme.md","articles":[{"title":"Setting up","level":"1.2.1","depth":2,"path":"vim/setting-up-vim.md","ref":"vim/setting-up-vim.md","articles":[]},{"title":"Usage","level":"1.2.2","depth":2,"path":"vim/vim-usage.md","ref":"vim/vim-usage.md","articles":[]},{"title":"Resources","level":"1.2.3","depth":2,"path":"vim/vim-resources.md","ref":"vim/vim-resources.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gerard Condon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tools Documentation","links":{"sidebar":{"Gerard Condon":"http://www.gerardcondon.com","Github":"https://github.com/gerardcondon/tools-docs"}},"gitbook":"*"},"file":{"path":"vim/setting-up-vim.md","mtime":"2017-02-20T21:53:16.608Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-20T21:59:00.432Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
