@@ -25,6 +25,10 @@
       set conceallevel=2 concealcursor=i
     endif
 
+## Tasks
+
+* Install Ctrl-p
+* Find out a way to remove trailing whitespace
 
 
 
@@ -43,6 +47,8 @@
 * https://codeyarns.com/tag/vim
 * http://www.glump.net/files/2012/08/vi-vim-cheat-sheet-and-tutorial.pdf
 * https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
+* https://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
+* http://stevelosh.com/blog/2010/09/coming-home-to-vim/
 
 ## C++
 
