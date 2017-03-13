@@ -25,6 +25,22 @@
       set conceallevel=2 concealcursor=i
     endif
 
+#### Visual Mode Selection
+vmap v <Plug>(expand_region_expand)
+ 63 vmap <C-v> <Plug>(expand_region_shrink)
+
+
+### Syntastic
+ set statusline+=%#warningmsg#
+ 83 set statusline+=%{SyntasticStatuslineFlag()}
+ 84 set statusline+=%*
+ 85
+ 86 let g:syntastic_always_populate_loc_list = 1
+ 87 let g:syntastic_auto_loc_list = 1
+ 88 let g:syntastic_check_on_open = 0
+ 89 let g:syntastic_check_on_wq = 0
+
+
 ## Tasks
 
 * Install Ctrl-p
@@ -40,7 +56,9 @@
 * https://github.com/vim-syntastic/syntastic
 * https://github.com/vim-airline/vim-airline
 * https://github.com/ctrlpvim/ctrlp.vim
+    - http://www.bestofvim.com/plugin/ctrl-p/
 * https://github.com/majutsushi/tagbar
+* https://github.com/tpope/vim-surround
 
 ## Resources
 
@@ -49,7 +67,8 @@
 * https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
 * https://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
 * http://stevelosh.com/blog/2010/09/coming-home-to-vim/
-
+* http://www.bestofvim.com/
+*
 ## C++
 
 * http://www.alexeyshmalko.com/2014/using-vim-as-c-cpp-ide/
@@ -71,3 +90,14 @@
 * http://tilvim.com/2014/07/30/tmux-and-vim.html
 * http://meirkriheli.com/talks/tmux-vim/#/
 * https://github.com/tmuxinator/tmuxinator
+
+# Misc
+https://medium.com/usevim/vim-101-registers-f6ad105dfd89#.cmuqxbbq0
+
+* leader - https://medium.com/usevim/vim-101-what-is-the-leader-key-f2f5c1fa610f#.bd2c7vv3t
+
+* Pretty Print JSON https://pascalprecht.github.io/2014/07/10/pretty-print-json-in-vim/
+
+* http://derekwyatt.org/vim/tutorials/index.html
+
+* Current directory - changing, printing current

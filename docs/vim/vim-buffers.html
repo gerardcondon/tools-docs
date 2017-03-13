@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Usage · Tools Documentation</title>
+        <title>Buffers · Tools Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="vim-buffers.html" />
+    <link rel="next" href="vim-cut-copy-paste.html" />
     
     
-    <link rel="prev" href="setting-up-vim.html" />
+    <link rel="prev" href="vim-usage.html" />
     
 
     </head>
@@ -143,7 +143,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.2" data-path="vim-usage.html">
+        <li class="chapter " data-level="1.2.2" data-path="vim-usage.html">
             
                 <a href="vim-usage.html">
             
@@ -156,7 +156,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="vim-buffers.html">
+        <li class="chapter active" data-level="1.2.3" data-path="vim-buffers.html">
             
                 <a href="vim-buffers.html">
             
@@ -372,7 +372,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Usage</a>
+        <a href=".." >Buffers</a>
     </h1>
 </div>
 
@@ -387,136 +387,46 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="vim-usage">VIM Usage</h1>
-<p>These notes are how to use VIM in general use. They are based on <a href="https://vim.swaroopch.com/" target="_blank">A Byte of VIM</a> and <a href="https://www.amazon.com/Practical-Vim-Edit-Speed-Thought/dp/1680501275/ref=dp_ob_title_bk" target="_blank">Practical VIM</a>.</p>
-<h2 id="modes">Modes</h2>
+                                <h1 id="vim-buffers">Vim Buffers</h1>
+<p>A buffer in VIM is equivalent to a tab in an editor like Sublime Text. It stores the contents of an open file.</p>
+<h2 id="navigating-buffers">Navigating Buffers</h2>
 <ul>
-<li>Multiple modes - the aim to make mouse redundant so we switch navigation from the mouse to a VIM mode and use the keyboard<ul>
-<li>insert mode for text entry</li>
-<li>normal mode for running commands (rewriting, editing)</li>
-<li>visual mode to visually select text</li>
+<li><code>:ls</code> brings up the list of open buffers</li>
+<li><code>:bn</code> where <code>n</code> is a number of a buffer shown with <code>:ls</code>. Switch to the numbered buffer</li>
+<li>There is a plugin which improves this called <a href="https://github.com/jlanzarotta/bufexplorer" target="_blank">BufExplorer</a><ul>
+<li>Use <code>&lt;Leader&gt;be</code>, <code>&lt;Leader&gt;bt</code>, <code>&lt;Leader&gt;bv</code>, or <code>&lt;Leader&gt;bs</code> to bring up the buffer window where you can select which buffer to open using the <code>hjkl</code> keys</li>
 </ul>
 </li>
 </ul>
-<h2 id="commands">Commands</h2>
-<p>Press <code>:</code> to enter commands in VIM. You can use the up arrows to scroll through previous commands. You can also type a portion of the command and then press up to scroll through previous commands with that prefix.</p>
+<h2 id="saving-buffers">Saving Buffers</h2>
 <ul>
-<li><code>:e &lt;name&gt;</code> - edit a file &amp; create it if it doesn&apos;t exist</li>
-<li><code>:w</code> - write (save) a file</li>
-<li><code>:q</code> - quit editor</li>
-<li><code>/query</code> - search for the next occurence of query</li>
-<li><code>:help</code> - open the vim help</li>
-</ul>
-<h2 id="beginning-to-edit">Beginning to edit</h2>
-<p>Beginning editing starts from the normal mode. Some of these commands return you to normal mode after finishing editing.</p>
-<ul>
-<li><p><code>.</code> - repeat the last normal mode change command</p>
+<li><code>:w</code> - saves the buffer</li>
+<li>Additional custom mappings that I&apos;ve made<ul>
+<li><code>&lt;Leader&gt;w</code> - save file from normal mode</li>
+<li><code>jk</code> - escapes from insert mode</li>
+<li><code>lkj</code> - save file from insert mode (and exit to normal mode)<pre><code class="lang-vim">nnoremap &lt;Leader&gt;w :w&lt;CR&gt;
+inoremap jk &lt;esc&gt;
+inoremap lkj &lt;Esc&gt;`^:w&lt;CR&gt;
+</code></pre>
 </li>
-<li><p><code>I</code> - go to the start of the line and enter insert mode</p>
-</li>
-<li><p><code>i</code> - switch to insert mode before the current postion</p>
-</li>
-<li><p><code>A</code> - go to the end of the line and enter insert mode</p>
-</li>
-<li><p><code>a</code> - switch to insert mode after the current position</p>
-</li>
-<li><p><code>O</code> - open a new line above the current line and enter insert mode</p>
-</li>
-<li><p><code>o</code> - open a new line below the current line and enter insert mode.</p>
-</li>
-<li><p><code>S</code> - substitute the entire line for a new one</p>
-</li>
-<li><p><code>s</code> - substitute the current character for a new one and stay in insert mode.</p>
-</li>
-<li><p><code>r</code> - replace the current character and go back to normal mode</p>
-</li>
-<li><p><code>R</code> - replace continuous characters and go back to normal mode</p>
-</li>
-<li><p><code>C</code> - change the rest of the line</p>
-</li>
-</ul>
-<h2 id="single-character-edits">Single Character Edits</h2>
-<ul>
-<li><code>~</code> - change the case of the character under the cursor</li>
-<li><code>x</code> - delete the character under the cursor</li>
-<li><code>r</code> - replace the character under the cursor</li>
-</ul>
-<h2 id="navigation">Navigation</h2>
-<ul>
-<li><code>h</code> - move left</li>
-<li><code>j</code> - move down</li>
-<li><code>k</code> - move up</li>
-<li><p><code>l</code> - move right</p>
-</li>
-<li><p>Adding a count before these will repeat the operation that amount of times.</p>
-</li>
-</ul>
-<h3 id="line">Line</h3>
-<ul>
-<li><code>^</code> - move to the start of the line</li>
-<li><code>$</code> - move to the end of the line</li>
-</ul>
-<h3 id="file">File</h3>
-<ul>
-<li><code>Ctrl-b</code> - move one screen up</li>
-<li><code>Ctrl-f</code> - move one screen down</li>
-<li><code>G</code> - move to the end of the file</li>
-<li><code>1G</code> - move to the top of the file</li>
-<li><code>50G</code> - move to line 50</li>
-</ul>
-<h3 id="window">Window</h3>
-<ul>
-<li><code>H</code> - move to top of the visible window (High)</li>
-<li><code>M</code> - move to middle of the visible window (Middle)</li>
-<li><code>L</code> - move to bottom of the visible window (Low)</li>
-</ul>
-<h3 id="word">Word</h3>
-<ul>
-<li><code>w</code> - move to the start of the next word</li>
-<li><code>e</code> - move to the end of the next word</li>
-<li><code>b</code> - move back to start of the previous word</li>
-</ul>
-<h3 id="sentence">Sentence</h3>
-<ul>
-<li><code>(</code> - move to the previous sentence</li>
-<li><code>)</code> - move to the next sentence</li>
-<li><code>{</code> - move to the previous paragraph</li>
-<li><code>}</code> - move to the next paragraph</li>
-</ul>
-<h3 id="mark">Mark</h3>
-<ul>
-<li>This is a marker in a file identified by a single character (uppercase or lowercase) to which we can jump to</li>
-<li><code>ma</code> - create a mark named a</li>
-<li><code>&apos;a</code> - jump to mark named a</li>
-</ul>
-<h3 id="location">Location</h3>
-<ul>
-<li><code>Ctrl-o</code> - jump to the previous location</li>
-<li><code>Ctrl-i</code> - jump to the next location</li>
-</ul>
-<h3 id="text-selection">Text selection</h3>
-<ul>
-<li>Press <code>v</code> to enter visual mode</li>
-<li>Now combine <code>a</code> with a text object selector to select the text<ul>
-<li><code>aw</code> - select a word</li>
-<li><code>ap</code> - select a paragraph</li>
-<li><code>ab</code> - select a block</li>
 </ul>
 </li>
 </ul>
-<h2 id="windowsbuffers">Windows/Buffers</h2>
+<h2 id="opening-a-file-in-a-buffer">Opening a file in a buffer</h2>
 <ul>
-<li><code>:pc</code> - close any preview window open</li>
+<li><code>:e &lt;filename&gt;</code> - VIM will autocomplete the filename using the tab key. This will expand folder and file names.</li>
+<li>Vim has a current directory that you can see using <code>:pwd</code>. Use <code>:cd &lt;directory&gt;</code> to cd to a directory. To map <code>&lt;Leader&gt;cd</code> to change to the current file&apos;s directory use <code>nnoremap &lt;Leader&gt;cd :cd %:p:h&lt;CR&gt;:pwd&lt;CR&gt;</code></li>
 </ul>
-<h2 id="cursor">Cursor</h2>
+<h2 id="searching-in-a-buffer">Searching in a buffer</h2>
 <ul>
-<li>Vim can navigate based on what&apos;s under the cursor</li>
-<li><code>gF</code> - go to the file under the cursor</li>
-<li><code>g]</code> - go to the tag under the cursor</li>
-</ul>
-<h2 id="misc">Misc</h2>
-<ul>
-<li>From force of habit I sometimes press Ctrl-s in VIM. This hangs my version of VIM. To recover from this press Ctrl-q.</li>
+<li>Improve searching with these settings<pre><code class="lang-vim"><span class="hljs-keyword">set</span> incsearch           <span class="hljs-comment">&quot; search as characters are entered</span>
+<span class="hljs-keyword">set</span> hlsearch            <span class="hljs-comment">&quot; highlight matches</span>
+</code></pre>
+</li>
+<li>To clear the seach highlight use the :nohlsearch command. I&apos;ve bound it to <code>&lt;Leader&gt;n</code><pre><code class="lang-vim">&quot; turn off search highlight
+nnoremap &lt;Leader&gt;n :nohlsearch&lt;CR&gt;
+</code></pre>
+</li>
 </ul>
 
                                 
@@ -545,12 +455,12 @@
 
             
                 
-                <a href="setting-up-vim.html" class="navigation navigation-prev " aria-label="Previous page: Setting up">
+                <a href="vim-usage.html" class="navigation navigation-prev " aria-label="Previous page: Usage">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="vim-buffers.html" class="navigation navigation-next " aria-label="Next page: Buffers">
+                <a href="vim-cut-copy-paste.html" class="navigation navigation-next " aria-label="Next page: Cut, Copy and Paste">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -561,7 +471,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Usage","level":"1.2.2","depth":2,"next":{"title":"Buffers","level":"1.2.3","depth":2,"path":"vim/vim-buffers.md","ref":"vim/vim-buffers.md","articles":[]},"previous":{"title":"Setting up","level":"1.2.1","depth":2,"path":"vim/setting-up-vim.md","ref":"vim/setting-up-vim.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gerard Condon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tools Documentation","links":{"sidebar":{"Gerard Condon":"http://www.gerardcondon.com","Github":"https://github.com/gerardcondon/tools-docs"}},"gitbook":"*"},"file":{"path":"vim/vim-usage.md","mtime":"2017-03-13T22:54:31.827Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-13T23:43:35.845Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Buffers","level":"1.2.3","depth":2,"next":{"title":"Cut, Copy and Paste","level":"1.2.4","depth":2,"path":"vim/vim-cut-copy-paste.md","ref":"vim/vim-cut-copy-paste.md","articles":[]},"previous":{"title":"Usage","level":"1.2.2","depth":2,"path":"vim/vim-usage.md","ref":"vim/vim-usage.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gerard Condon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tools Documentation","links":{"sidebar":{"Gerard Condon":"http://www.gerardcondon.com","Github":"https://github.com/gerardcondon/tools-docs"}},"gitbook":"*"},"file":{"path":"vim/vim-buffers.md","mtime":"2017-03-13T23:39:24.235Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-13T23:43:35.845Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
