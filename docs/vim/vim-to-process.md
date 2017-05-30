@@ -29,6 +29,9 @@
 vmap v <Plug>(expand_region_expand)
  63 vmap <C-v> <Plug>(expand_region_shrink)
 
+#### Degrade VIMRC
+In case of errors in the vimrc you may want to ignore these so that VIM will start up without needing an enter key to be pressed. This can be useful when trying to switch to an optional color scheme. Without this vim acan't be started in command mode so tasks like updating plugins from the command line become a lot harder.
+* https://sanctum.geek.nz/arabesque/gracefully-degrading-vimrc/
 
 ### Syntastic
  set statusline+=%#warningmsg#
@@ -40,13 +43,15 @@ vmap v <Plug>(expand_region_expand)
  88 let g:syntastic_check_on_open = 0
  89 let g:syntastic_check_on_wq = 0
 
+https://github.com/vim-syntastic/syntastic/issues/1203
 
 ## Tasks
 
 * Install Ctrl-p
 * Find out a way to remove trailing whitespace
 
-
+## Indentation
+http://stackoverflow.com/a/5212123/1131820
 
 ## INVS
 
@@ -57,8 +62,10 @@ vmap v <Plug>(expand_region_expand)
 * https://github.com/vim-airline/vim-airline
 * https://github.com/ctrlpvim/ctrlp.vim
     - http://www.bestofvim.com/plugin/ctrl-p/
-* https://github.com/majutsushi/tagbar
+- https://github.com/vim-airline/vim-airline
 * https://github.com/tpope/vim-surround
+* http://www.vim.org/scripts/script.php?script_id=2425
+* http://learnvimscriptthehardway.stevelosh.com/chapters/18.html
 
 ## Resources
 
@@ -90,6 +97,7 @@ vmap v <Plug>(expand_region_expand)
 * http://tilvim.com/2014/07/30/tmux-and-vim.html
 * http://meirkriheli.com/talks/tmux-vim/#/
 * https://github.com/tmuxinator/tmuxinator
+* https://blog.bugsnag.com/tmux-and-vim/
 
 # Misc
 https://medium.com/usevim/vim-101-registers-f6ad105dfd89#.cmuqxbbq0
@@ -101,3 +109,9 @@ https://medium.com/usevim/vim-101-registers-f6ad105dfd89#.cmuqxbbq0
 * http://derekwyatt.org/vim/tutorials/index.html
 
 * Current directory - changing, printing current
+
+## Windows
+
+* https://www.alexwhittemore.com/gvim-with-powerline-on-windows-8-64bit/
+* https://github.com/powerline/fonts/pull/18
+* http://stackoverflow.com/questions/19105279/how-can-i-setup-my-vim-airline-or-vim-powerline

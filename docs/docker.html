@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Bash · Tools Documentation</title>
+        <title>Docker · Tools Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="svn.html" />
     
-    
-    <link rel="prev" href="tmux/configuring-tmux.html" />
+    <link rel="prev" href="stow.html" />
     
 
     </head>
@@ -464,7 +462,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4" data-path="bash.html">
+        <li class="chapter " data-level="1.4" data-path="bash.html">
             
                 <a href="bash.html">
             
@@ -530,7 +528,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.3" data-path="docker.html">
+        <li class="chapter active" data-level="1.6.3" data-path="docker.html">
             
                 <a href="docker.html">
             
@@ -578,7 +576,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Bash</a>
+        <a href="." >Docker</a>
     </h1>
 </div>
 
@@ -593,59 +591,15 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="bash">BASH</h1>
-<h2 id="reload">Reload</h2>
+                                <h1 id="docker">Docker</h1>
+<h2 id="best-practices">Best Practices</h2>
 <ul>
-<li>Run <code>exec bash</code> to start a new bash terminal in place of the current one.</li>
+<li><a href="https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/" target="_blank">https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/</a></li>
+<li><a href="https://github.com/FuriKuri/docker-best-practices" target="_blank">https://github.com/FuriKuri/docker-best-practices</a></li>
 </ul>
-<h2 id="bookmarking-locations">Bookmarking locations</h2>
+<h2 id="tools">Tools</h2>
 <ul>
-<li>I use the method described by Jeroen Janssens in his blog <a href="http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html" target="_blank">post</a>.</li>
-<li>I got the jump scripts from <a href="https://github.com/neuhalje/homesick-bash-mark_jump/blob/master/home/.bashrc-plugin.bash-jump.d/common/plugin.conf" target="_blank">here</a>.</li>
-</ul>
-<h2 id="completion">Completion</h2>
-<ul>
-<li>You want to enable extra completion to get completion for e.g. Makefile targets</li>
-<li>The <a href="https://github.com/scop/bash-completion" target="_blank">bash-completion</a> plugin provides this and can be installed via your package manager</li>
-</ul>
-<h2 id="sudoers">Sudoers</h2>
-<ul>
-<li><a href="http://askubuntu.com/questions/7477/how-can-i-add-a-new-user-as-sudoer-using-the-command-line?newreg=069e40909cc04369bfdbfcaec0afadd7" target="_blank">Link</a> showing how to add user to sudoers</li>
-</ul>
-<h2 id="search-and-replace-text-in-a-file">Search and Replace Text in a file</h2>
-<ul>
-<li>Use and external program like perl or sed</li>
-<li><code>perl -pi -e &apos;s/abc/XYZ/g&apos; /tmp/file.txt</code></li>
-<li><code>sed -i -e &apos;s/abc/XYZ/g&apos; /tmp/file.txt</code></li>
-<li><code>mssql-server</code> package ships with a <code>replace</code> tool<ul>
-<li><code>replace &quot;abc&quot; &quot;XYZ&quot; -- file1.txt</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="extract-files-from-an-rpm">Extract Files from an RPM</h2>
-<ul>
-<li><code>rpm2cpio ./packagecloud-test-1.1-1.x86_64.rpm | cpio -idmv</code></li>
-</ul>
-<h2 id="check-the-dependencies-of-a-program">Check the dependencies of a program</h2>
-<ul>
-<li><code>ldd /usr/bin/ffmpeg</code></li>
-</ul>
-<h2 id="extract-column-from-data">Extract column from data</h2>
-<ul>
-<li><code>awk &apos;{print $2}&apos;</code> prints the second column of data</li>
-</ul>
-<h2 id="copy-list-of-files-to-another-folder-and-maintain-folder-structure">Copy list of files to another folder and maintain folder structure</h2>
-<ul>
-<li><code>&lt;command to generate file list&gt; | cpio --pass-through --verbose --make-directories -u ../tmp/f1/f2/</code></li>
-</ul>
-<h2 id="tree">Tree</h2>
-<ul>
-<li>This is a useful command to print the contents of a folder in a tree like manner.</li>
-</ul>
-<h2 id="file-system-maintenance">File System maintenance</h2>
-<ul>
-<li><code>lsblk</code> will list the volumes and where they&apos;re mounted in a tree like manner.</li>
-<li><a href="https://www.tecmint.com/extend-and-reduce-lvms-in-linux/" target="_blank">Extend or reduce LVMs</a>. Shows how to create the physical partitions, extend the logical partitions and resize the file system.</li>
+<li><a href="https://github.com/RedCoolBeans/dockerlint" target="_blank">DockerLint</a></li>
 </ul>
 
                                 
@@ -674,14 +628,10 @@
 
             
                 
-                <a href="tmux/configuring-tmux.html" class="navigation navigation-prev " aria-label="Previous page: Configuring">
+                <a href="stow.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Stow">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="svn.html" class="navigation navigation-next " aria-label="Next page: Subversion">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -690,7 +640,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Bash","level":"1.4","depth":1,"next":{"title":"Subversion","level":"1.5","depth":1,"path":"svn.md","ref":"svn.md","articles":[]},"previous":{"title":"Configuring","level":"1.3.2","depth":2,"path":"tmux/configuring-tmux.md","ref":"tmux/configuring-tmux.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gerard Condon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tools Documentation","links":{"sidebar":{"Gerard Condon":"http://www.gerardcondon.com","Github":"https://github.com/gerardcondon/tools-docs"}},"gitbook":"*"},"file":{"path":"bash.md","mtime":"2017-05-30T22:38:13.673Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-30T22:51:16.083Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Docker","level":"1.6.3","depth":2,"previous":{"title":"Stow","level":"1.6.2","depth":2,"path":"stow.md","ref":"stow.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gerard Condon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tools Documentation","links":{"sidebar":{"Gerard Condon":"http://www.gerardcondon.com","Github":"https://github.com/gerardcondon/tools-docs"}},"gitbook":"*"},"file":{"path":"docker.md","mtime":"2017-05-30T22:38:13.673Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-30T22:51:16.083Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

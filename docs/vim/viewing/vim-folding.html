@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Practical VIM · Tools Documentation</title>
+        <title>Folding · Tools Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="pv-1-vim-way.html" />
+    <link rel="next" href="vim-windows.html" />
     
     
-    <link rel="prev" href="../vim-resources.html" />
+    <link rel="prev" href="vim-buffers.html" />
     
 
     </head>
@@ -228,9 +228,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.4.1" data-path="../viewing/vim-buffers.html">
+        <li class="chapter " data-level="1.2.4.1" data-path="vim-buffers.html">
             
-                <a href="../viewing/vim-buffers.html">
+                <a href="vim-buffers.html">
             
                     
                     Buffers
@@ -241,9 +241,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.4.2" data-path="../viewing/vim-folding.html">
+        <li class="chapter active" data-level="1.2.4.2" data-path="vim-folding.html">
             
-                <a href="../viewing/vim-folding.html">
+                <a href="vim-folding.html">
             
                     
                     Folding
@@ -254,9 +254,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.4.3" data-path="../viewing/vim-windows.html">
+        <li class="chapter " data-level="1.2.4.3" data-path="vim-windows.html">
             
-                <a href="../viewing/vim-windows.html">
+                <a href="vim-windows.html">
             
                     
                     Windows
@@ -343,9 +343,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.9" data-path="readme.html">
+        <li class="chapter " data-level="1.2.9" data-path="../practical-vim/readme.html">
             
-                <a href="readme.html">
+                <a href="../practical-vim/readme.html">
             
                     
                     Practical VIM
@@ -357,9 +357,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.9.1" data-path="pv-1-vim-way.html">
+        <li class="chapter " data-level="1.2.9.1" data-path="../practical-vim/pv-1-vim-way.html">
             
-                <a href="pv-1-vim-way.html">
+                <a href="../practical-vim/pv-1-vim-way.html">
             
                     
                     The VIM way
@@ -370,9 +370,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.9.2" data-path="pv-2-normal-mode.html">
+        <li class="chapter " data-level="1.2.9.2" data-path="../practical-vim/pv-2-normal-mode.html">
             
-                <a href="pv-2-normal-mode.html">
+                <a href="../practical-vim/pv-2-normal-mode.html">
             
                     
                     Normal Mode
@@ -383,7 +383,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.9.3" data-path="pv-2-insert-mode.md">
+        <li class="chapter " data-level="1.2.9.3" data-path="../practical-vim/pv-2-insert-mode.md">
             
                 <span>
             
@@ -578,7 +578,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Practical VIM</a>
+        <a href="../.." >Folding</a>
     </h1>
 </div>
 
@@ -593,8 +593,33 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="practical-vim">Practical VIM</h1>
-<p>These are notes from <a href="https://pragprog.com/book/dnvim2/practical-vim-second-edition" target="_blank">Practical VIM</a> from <a href="https://pragprog.com/" target="_blank">Pragmatic programmers</a> by Drew Neil.</p>
+                                <h1 id="vim-multiple-views">Vim Multiple Views</h1>
+<h2 id="different-parts-of-the-same-file">Different Parts of the same file</h2>
+<h3 id="folding">Folding</h3>
+<ul>
+<li>There are a number of ways to specify to vim where to select the code fold points. Indent or syntax is probably the best beginner method to start with <code>:set foldmethod=indent</code></li>
+<li><code>za</code> toggles the current fold. Create a shortcut like so <code>nnoremap &lt;Leader&gt;z za</code></li>
+<li>By default when you open a file all the folds will be closed. To have all files open on opening a file add the following to your <code>.vimrc</code>
+  <code>au BufRead * normal zR</code></li>
+<li><code>zc</code> closes the current fold and <code>zo</code> opens the current fold.</li>
+<li><p>For Python folding I found the default indent to allow too many folds. Also the default Python Vim syntax file has no support for folding. To get around this I used the <a href="https://github.com/tmhedberg/SimpylFold" target="_blank">SimpylFold</a> plugin.</p>
+</li>
+<li><p>The default fold text doesn&apos;t look that great so I use this function from <a href="http://dhruvasagar.com/2013/03/28/vim-better-foldtext" target="_blank">dhruvasagar</a> instead</p>
+</li>
+</ul>
+<pre><code class="lang-vim"><span class="hljs-function"><span class="hljs-keyword">function</span>! <span class="hljs-title">NeatFoldText</span><span class="hljs-params">()</span> &quot;{{{2</span>
+  <span class="hljs-keyword">let</span> <span class="hljs-built_in">line</span> = <span class="hljs-string">&apos; &apos;</span> . <span class="hljs-keyword">substitute</span>(<span class="hljs-built_in">getline</span>(<span class="hljs-variable">v:foldstart</span>), <span class="hljs-string">&apos;^\s*&quot;\?\s*\|\s*&quot;\?\s*{{&apos;</span> . <span class="hljs-string">&apos;{\d*\s*&apos;</span>, <span class="hljs-string">&apos;&apos;</span>, <span class="hljs-string">&apos;g&apos;</span>) . <span class="hljs-string">&apos; &apos;</span>
+  <span class="hljs-keyword">let</span> lines_count = <span class="hljs-variable">v:foldend</span> - <span class="hljs-variable">v:foldstart</span> + <span class="hljs-number">1</span>
+  <span class="hljs-keyword">let</span> lines_count_text = <span class="hljs-string">&apos;| &apos;</span> . <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%10s&quot;</span>, lines_count . <span class="hljs-string">&apos; lines&apos;</span>) . <span class="hljs-string">&apos; |&apos;</span>
+  <span class="hljs-keyword">let</span> foldchar = <span class="hljs-built_in">matchstr</span>(&amp;fillchars, <span class="hljs-string">&apos;fold:\zs.&apos;</span>)
+  <span class="hljs-keyword">let</span> foldtextstart = <span class="hljs-built_in">strpart</span>(<span class="hljs-string">&apos;+&apos;</span> . <span class="hljs-built_in">repeat</span>(foldchar, <span class="hljs-variable">v:foldlevel</span>*<span class="hljs-number">2</span>) . <span class="hljs-built_in">line</span>, <span class="hljs-number">0</span>, (<span class="hljs-built_in">winwidth</span>(<span class="hljs-number">0</span>)*<span class="hljs-number">2</span>)/<span class="hljs-number">3</span>)
+  <span class="hljs-keyword">let</span> foldtextend = lines_count_text . <span class="hljs-built_in">repeat</span>(foldchar, <span class="hljs-number">8</span>)
+  <span class="hljs-keyword">let</span> foldtextlength = <span class="hljs-built_in">strlen</span>(<span class="hljs-keyword">substitute</span>(foldtextstart . foldtextend, <span class="hljs-string">&apos;.&apos;</span>, <span class="hljs-string">&apos;x&apos;</span>, <span class="hljs-string">&apos;g&apos;</span>)) + &amp;foldcolumn
+  <span class="hljs-keyword">return</span> foldtextstart . <span class="hljs-built_in">repeat</span>(foldchar, <span class="hljs-built_in">winwidth</span>(<span class="hljs-number">0</span>)-foldtextlength) . foldtextend
+<span class="hljs-keyword">endfunction</span>
+<span class="hljs-keyword">set</span> <span class="hljs-built_in">foldtext</span>=NeatFoldText()
+<span class="hljs-comment">&quot; }}}2</span>
+</code></pre>
 
                                 
                                 </section>
@@ -622,12 +647,12 @@
 
             
                 
-                <a href="../vim-resources.html" class="navigation navigation-prev " aria-label="Previous page: Resources">
+                <a href="vim-buffers.html" class="navigation navigation-prev " aria-label="Previous page: Buffers">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="pv-1-vim-way.html" class="navigation navigation-next " aria-label="Next page: The VIM way">
+                <a href="vim-windows.html" class="navigation navigation-next " aria-label="Next page: Windows">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -638,7 +663,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Practical VIM","level":"1.2.9","depth":2,"next":{"title":"The VIM way","level":"1.2.9.1","depth":3,"path":"vim/practical-vim/pv-1-vim-way.md","ref":"vim/practical-vim/pv-1-vim-way.md","articles":[]},"previous":{"title":"Resources","level":"1.2.8","depth":2,"path":"vim/vim-resources.md","ref":"vim/vim-resources.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gerard Condon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tools Documentation","links":{"sidebar":{"Gerard Condon":"http://www.gerardcondon.com","Github":"https://github.com/gerardcondon/tools-docs"}},"gitbook":"*"},"file":{"path":"vim/practical-vim/readme.md","mtime":"2017-03-13T23:42:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-30T22:51:16.083Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Folding","level":"1.2.4.2","depth":3,"next":{"title":"Windows","level":"1.2.4.3","depth":3,"path":"vim/viewing/vim-windows.md","ref":"vim/viewing/vim-windows.md","articles":[]},"previous":{"title":"Buffers","level":"1.2.4.1","depth":3,"path":"vim/viewing/vim-buffers.md","ref":"vim/viewing/vim-buffers.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gerard Condon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tools Documentation","links":{"sidebar":{"Gerard Condon":"http://www.gerardcondon.com","Github":"https://github.com/gerardcondon/tools-docs"}},"gitbook":"*"},"file":{"path":"vim/viewing/vim-folding.md","mtime":"2017-05-30T22:45:03.270Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-30T22:51:16.083Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
