@@ -25,6 +25,8 @@
       set conceallevel=2 concealcursor=i
     endif
 
+### Syntastic
+
 #### Visual Mode Selection
 vmap v <Plug>(expand_region_expand)
  63 vmap <C-v> <Plug>(expand_region_shrink)
@@ -66,6 +68,9 @@ http://stackoverflow.com/a/5212123/1131820
 * https://github.com/tpope/vim-surround
 * http://www.vim.org/scripts/script.php?script_id=2425
 * http://learnvimscriptthehardway.stevelosh.com/chapters/18.html
+* https://github.com/wellle/targets.vim
+* https://bluz71.github.io/2017/05/21/vim-plugins-i-like.html
+* https://github.com/rhysd/clever-f.vim
 
 ## Resources
 
@@ -88,6 +93,10 @@ http://stackoverflow.com/a/5212123/1131820
 * https://www.youtube.com/watch?v=rfl9KQb_HVk
 
 
+## Windows
+
+* https://medium.com/@saaguero/setting-up-vim-in-windows-5401b1d58537
+* https://medium.com/@saaguero/improving-performance-in-vim-9b33598c8eaf
 
 
 ## INVS
