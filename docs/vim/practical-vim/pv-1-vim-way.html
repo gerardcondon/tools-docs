@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Marks · Tools Documentation</title>
+        <title>The VIM way · Tools Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="vim-undo-redo.html" />
+    <link rel="next" href="pv-2-normal-mode.html" />
     
     
-    <link rel="prev" href="vim-cut-copy-paste.html" />
+    <link rel="prev" href="readme.html" />
     
 
     </head>
@@ -183,9 +183,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.4.1" data-path="vim-cut-copy-paste.html">
+        <li class="chapter " data-level="1.2.4.1" data-path="../editing/vim-cut-copy-paste.html">
             
-                <a href="vim-cut-copy-paste.html">
+                <a href="../editing/vim-cut-copy-paste.html">
             
                     
                     Cut, Copy and Paste
@@ -196,9 +196,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.4.2" data-path="vim-marks.html">
+        <li class="chapter " data-level="1.2.4.2" data-path="../editing/vim-marks.html">
             
-                <a href="vim-marks.html">
+                <a href="../editing/vim-marks.html">
             
                     
                     Marks
@@ -209,9 +209,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.4.3" data-path="vim-undo-redo.html">
+        <li class="chapter " data-level="1.2.4.3" data-path="../editing/vim-undo-redo.html">
             
-                <a href="vim-undo-redo.html">
+                <a href="../editing/vim-undo-redo.html">
             
                     
                     Undo/Redo
@@ -356,9 +356,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.10" data-path="../practical-vim/readme.html">
+        <li class="chapter " data-level="1.2.10" data-path="readme.html">
             
-                <a href="../practical-vim/readme.html">
+                <a href="readme.html">
             
                     
                     Practical VIM
@@ -370,9 +370,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.10.1" data-path="../practical-vim/pv-1-vim-way.html">
+        <li class="chapter active" data-level="1.2.10.1" data-path="pv-1-vim-way.html">
             
-                <a href="../practical-vim/pv-1-vim-way.html">
+                <a href="pv-1-vim-way.html">
             
                     
                     The VIM way
@@ -383,9 +383,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.10.2" data-path="../practical-vim/pv-2-normal-mode.html">
+        <li class="chapter " data-level="1.2.10.2" data-path="pv-2-normal-mode.html">
             
-                <a href="../practical-vim/pv-2-normal-mode.html">
+                <a href="pv-2-normal-mode.html">
             
                     
                     Normal Mode
@@ -396,7 +396,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.10.3" data-path="../practical-vim/pv-2-insert-mode.md">
+        <li class="chapter " data-level="1.2.10.3" data-path="pv-2-insert-mode.md">
             
                 <span>
             
@@ -623,7 +623,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Marks</a>
+        <a href="../.." >The VIM way</a>
     </h1>
 </div>
 
@@ -638,16 +638,63 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="marks">Marks</h1>
-<p>Vim allows us to mark our place in a file and jump back to it later. There are a number of different marks that can be created. For example we can create marks that just apply within a file, or can create marks that apply across all files.</p>
+                                <h1 id="the-vim-way">The Vim Way</h1>
+<h2 id="1-dot-command">1. Dot Command</h2>
 <ul>
-<li><code>m&lt;a-zA-Z&gt;</code> creates a mark.</li>
-<li><code>&apos;&lt;a-zA-Z&gt;</code> jumps to the particular mark.</li>
+<li>The <code>.</code> command repeats the last change</li>
+<li>Changes can operate on characters, lines and even the whole file.</li>
+<li>For example to delete a comment like <code>//</code> at the start of a line you might enter <code>3dl</code>. Moving to the next line and pressing <code>.</code> will remove the comment characters from that line also.</li>
 </ul>
-<h2 id="local-marks">Local Marks</h2>
-<p>Lowercase marks i.e. those created using <code>a-z</code> are unique to a file only. We can have marks with the same name in different files and they will not clash with each other. For example, we could add a mark <code>t</code> to indicate the top of each file. In this case each file will have a separate <code>t</code> mark and pressing <code>&apos;t</code> will jump to the top of the file.</p>
-<h2 id="global-marks">Global Marks</h2>
-<p>Uppercase marks i.e. those created using <code>A-Z</code> are global across all files. If we create a mark <code>A</code> in a file then no matter what other file we are in, pressing <code>&apos;A</code> will jump us to that mark in that file.</p>
+<h2 id="2-reduce-extraneous-movement">2. Reduce Extraneous Movement</h2>
+<ul>
+<li>Vim has operations which are effectively compounds operations e.g. move the cursor to somewhere and start editing, e.g. <code>A</code> can be thought of as <code>$a</code>.</li>
+<li>Should favour these as it helps with the dot command - we don&apos;t need to position the cursor ourselves.</li>
+<li>Other examples<ul>
+<li><code>C</code> - <code>c$</code></li>
+<li><code>s</code> - <code>cl</code></li>
+<li><code>S</code> - <code>^C</code></li>
+<li><code>I</code> - <code>^i</code></li>
+<li><code>A</code> - <code>$a</code></li>
+<li><code>o</code> - <code>A&lt;CR&gt;</code></li>
+<li><code>O</code> - <code>ko</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="3-use-idiomatic-vim-commands-for-editing">3. Use Idiomatic VIM commands for editing</h2>
+<ul>
+<li>For complex editing we want a sequence of commands that (optionally delete current text and ) enter insert mode, insert changed text and exit insert mode.</li>
+<li>This can be repeated using the <code>.</code> command.</li>
+<li>If we do a search to find occurences of where to perform the operation then we can repeatedly make the change using <code>;</code> to repeat the search and <code>.</code> to make the change.</li>
+</ul>
+<h2 id="4-act-repeat-reverse">4. Act, Repeat, Reverse</h2>
+<ul>
+<li>When facing a repetitive task try to make the motion and the change repeatable.</li>
+<li><code>.</code> repeats the last change</li>
+<li><code>@:</code> repeats the last Ex command (i.e. <code>:</code> commands)</li>
+<li><code>;</code> repeats the last f<char></char></li>
+<li><p><code>n</code> searches againt for a pattern specified using <code>/</code></p>
+</li>
+<li><p><code>u</code> undoes the last change or substitution</p>
+</li>
+<li><code>,</code> undoes the last find command (f<char>)</char></li>
+<li><code>N</code> undoes the last <code>/</code> search</li>
+</ul>
+<h2 id="5-find-and-replace-by-hand">5. Find and Replace by Hand</h2>
+<ul>
+<li>Idea is to make the first replacement by hand and then use the <code>.</code> command to repeat the next changes. Can be useful if you need to manually verify each change e.g. search/replace some instances of a text snippet.</li>
+<li>Can use <code>*</code> to seach for the word under the cursor at the moment and <code>n</code> to find the next match.</li>
+<li>Combining these we get the following workflow<ul>
+<li>Find the first instance of the text you are searching for</li>
+<li>Press <code>*</code> to find the first instance that we wish to change (if not at it already)</li>
+<li>make the change e.g. using <code>cw</code> to change a word. Drop into insert mode only once so that VIM records all the changes as a single edit.</li>
+<li>now press <code>n</code> until you find the next instance you wish to change and <code>.</code> to make the change.</li>
+</ul>
+</li>
+</ul>
+<h2 id="6-dot-formula">6. Dot Formula</h2>
+<ul>
+<li>Ideally for repeated edits we would use the formula of one keystroke to move and another keystroke to edit e.g. <code>n.</code> as above.</li>
+</ul>
 
                                 
                                 </section>
@@ -675,12 +722,12 @@
 
             
                 
-                <a href="vim-cut-copy-paste.html" class="navigation navigation-prev " aria-label="Previous page: Cut, Copy and Paste">
+                <a href="readme.html" class="navigation navigation-prev " aria-label="Previous page: Practical VIM">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="vim-undo-redo.html" class="navigation navigation-next " aria-label="Next page: Undo/Redo">
+                <a href="pv-2-normal-mode.html" class="navigation navigation-next " aria-label="Next page: Normal Mode">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -691,7 +738,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Marks","level":"1.2.4.2","depth":3,"next":{"title":"Undo/Redo","level":"1.2.4.3","depth":3,"path":"vim/editing/vim-undo-redo.md","ref":"vim/editing/vim-undo-redo.md","articles":[]},"previous":{"title":"Cut, Copy and Paste","level":"1.2.4.1","depth":3,"path":"vim/editing/vim-cut-copy-paste.md","ref":"vim/editing/vim-cut-copy-paste.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gerard Condon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tools Documentation","links":{"sidebar":{"Gerard Condon":"http://www.gerardcondon.com","Github":"https://github.com/gerardcondon/tools-docs"}},"gitbook":"*"},"file":{"path":"vim/editing/vim-marks.md","mtime":"2017-08-21T22:13:53.806Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-21T23:11:50.739Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"The VIM way","level":"1.2.10.1","depth":3,"next":{"title":"Normal Mode","level":"1.2.10.2","depth":3,"path":"vim/practical-vim/pv-2-normal-mode.md","ref":"vim/practical-vim/pv-2-normal-mode.md","articles":[]},"previous":{"title":"Practical VIM","level":"1.2.10","depth":2,"path":"vim/practical-vim/readme.md","ref":"vim/practical-vim/readme.md","articles":[{"title":"The VIM way","level":"1.2.10.1","depth":3,"path":"vim/practical-vim/pv-1-vim-way.md","ref":"vim/practical-vim/pv-1-vim-way.md","articles":[]},{"title":"Normal Mode","level":"1.2.10.2","depth":3,"path":"vim/practical-vim/pv-2-normal-mode.md","ref":"vim/practical-vim/pv-2-normal-mode.md","articles":[]},{"title":"Insert Mode","level":"1.2.10.3","depth":3,"path":"vim/practical-vim/pv-2-insert-mode.md","ref":"vim/practical-vim/pv-2-insert-mode.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gerard Condon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tools Documentation","links":{"sidebar":{"Gerard Condon":"http://www.gerardcondon.com","Github":"https://github.com/gerardcondon/tools-docs"}},"gitbook":"*"},"file":{"path":"vim/practical-vim/pv-1-vim-way.md","mtime":"2017-03-13T23:44:53.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-21T23:11:50.739Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

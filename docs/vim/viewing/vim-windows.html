@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Marks · Tools Documentation</title>
+        <title>Windows · Tools Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="vim-undo-redo.html" />
+    <link rel="next" href="../vim-searching.html" />
     
     
-    <link rel="prev" href="vim-cut-copy-paste.html" />
+    <link rel="prev" href="vim-folding.html" />
     
 
     </head>
@@ -183,9 +183,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.4.1" data-path="vim-cut-copy-paste.html">
+        <li class="chapter " data-level="1.2.4.1" data-path="../editing/vim-cut-copy-paste.html">
             
-                <a href="vim-cut-copy-paste.html">
+                <a href="../editing/vim-cut-copy-paste.html">
             
                     
                     Cut, Copy and Paste
@@ -196,9 +196,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.4.2" data-path="vim-marks.html">
+        <li class="chapter " data-level="1.2.4.2" data-path="../editing/vim-marks.html">
             
-                <a href="vim-marks.html">
+                <a href="../editing/vim-marks.html">
             
                     
                     Marks
@@ -209,9 +209,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.4.3" data-path="vim-undo-redo.html">
+        <li class="chapter " data-level="1.2.4.3" data-path="../editing/vim-undo-redo.html">
             
-                <a href="vim-undo-redo.html">
+                <a href="../editing/vim-undo-redo.html">
             
                     
                     Undo/Redo
@@ -241,9 +241,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.5.1" data-path="../viewing/vim-buffers.html">
+        <li class="chapter " data-level="1.2.5.1" data-path="vim-buffers.html">
             
-                <a href="../viewing/vim-buffers.html">
+                <a href="vim-buffers.html">
             
                     
                     Buffers
@@ -254,9 +254,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.5.2" data-path="../viewing/vim-folding.html">
+        <li class="chapter " data-level="1.2.5.2" data-path="vim-folding.html">
             
-                <a href="../viewing/vim-folding.html">
+                <a href="vim-folding.html">
             
                     
                     Folding
@@ -267,9 +267,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.5.3" data-path="../viewing/vim-windows.html">
+        <li class="chapter active" data-level="1.2.5.3" data-path="vim-windows.html">
             
-                <a href="../viewing/vim-windows.html">
+                <a href="vim-windows.html">
             
                     
                     Windows
@@ -623,7 +623,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Marks</a>
+        <a href="../.." >Windows</a>
     </h1>
 </div>
 
@@ -638,16 +638,14 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="marks">Marks</h1>
-<p>Vim allows us to mark our place in a file and jump back to it later. There are a number of different marks that can be created. For example we can create marks that just apply within a file, or can create marks that apply across all files.</p>
+                                <h1 id="vim-windows">Vim Windows</h1>
 <ul>
-<li><code>m&lt;a-zA-Z&gt;</code> creates a mark.</li>
-<li><code>&apos;&lt;a-zA-Z&gt;</code> jumps to the particular mark.</li>
+<li>A window in VIM is a pane in which you view files. You can have mulitple VIM windows on screen simultaneously. They are laid out in a tiled format i.e. windows next to each other and not overlapping.</li>
+<li>To switch between windows use <code>Ctrl-w &lt;motion-key</code> where motion key is one of <code>h</code>, <code>j</code>, <code>k</code> or <code>l</code>.</li>
+<li><code>Ctrl-w Ctrl-w</code> will cycle between open windows.</li>
+<li><code>Ctrl-w s</code> or <code>:sp</code> will create a split pane for the current buffer to give you two separate views into that buffer. Changes in one are reflected in the other immediately.</li>
+<li><code>Ctrl-w v</code> or <code>:vsp</code> does the same for vertical buffers.</li>
 </ul>
-<h2 id="local-marks">Local Marks</h2>
-<p>Lowercase marks i.e. those created using <code>a-z</code> are unique to a file only. We can have marks with the same name in different files and they will not clash with each other. For example, we could add a mark <code>t</code> to indicate the top of each file. In this case each file will have a separate <code>t</code> mark and pressing <code>&apos;t</code> will jump to the top of the file.</p>
-<h2 id="global-marks">Global Marks</h2>
-<p>Uppercase marks i.e. those created using <code>A-Z</code> are global across all files. If we create a mark <code>A</code> in a file then no matter what other file we are in, pressing <code>&apos;A</code> will jump us to that mark in that file.</p>
 
                                 
                                 </section>
@@ -675,12 +673,12 @@
 
             
                 
-                <a href="vim-cut-copy-paste.html" class="navigation navigation-prev " aria-label="Previous page: Cut, Copy and Paste">
+                <a href="vim-folding.html" class="navigation navigation-prev " aria-label="Previous page: Folding">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="vim-undo-redo.html" class="navigation navigation-next " aria-label="Next page: Undo/Redo">
+                <a href="../vim-searching.html" class="navigation navigation-next " aria-label="Next page: Searching">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -691,7 +689,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Marks","level":"1.2.4.2","depth":3,"next":{"title":"Undo/Redo","level":"1.2.4.3","depth":3,"path":"vim/editing/vim-undo-redo.md","ref":"vim/editing/vim-undo-redo.md","articles":[]},"previous":{"title":"Cut, Copy and Paste","level":"1.2.4.1","depth":3,"path":"vim/editing/vim-cut-copy-paste.md","ref":"vim/editing/vim-cut-copy-paste.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gerard Condon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tools Documentation","links":{"sidebar":{"Gerard Condon":"http://www.gerardcondon.com","Github":"https://github.com/gerardcondon/tools-docs"}},"gitbook":"*"},"file":{"path":"vim/editing/vim-marks.md","mtime":"2017-08-21T22:13:53.806Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-21T23:11:50.739Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Windows","level":"1.2.5.3","depth":3,"next":{"title":"Searching","level":"1.2.6","depth":2,"path":"vim/vim-searching.md","ref":"vim/vim-searching.md","articles":[]},"previous":{"title":"Folding","level":"1.2.5.2","depth":3,"path":"vim/viewing/vim-folding.md","ref":"vim/viewing/vim-folding.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gerard Condon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tools Documentation","links":{"sidebar":{"Gerard Condon":"http://www.gerardcondon.com","Github":"https://github.com/gerardcondon/tools-docs"}},"gitbook":"*"},"file":{"path":"vim/viewing/vim-windows.md","mtime":"2017-05-30T22:38:13.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-21T23:11:50.739Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Introduction · Tools Documentation</title>
+        <title>Bash · Tools Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,8 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="vim/readme.html" />
+    <link rel="next" href="bash/bash-scripting.html" />
     
+    
+    <link rel="prev" href="tmux/configuring-tmux.html" />
     
 
     </head>
@@ -101,7 +103,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -475,7 +477,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="bash.html">
+        <li class="chapter active" data-level="1.4" data-path="bash.html">
             
                 <a href="bash.html">
             
@@ -621,7 +623,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Introduction</a>
+        <a href="." >Bash</a>
     </h1>
 </div>
 
@@ -636,15 +638,86 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="tool-docs">Tool Docs</h1>
-<p>These are my notes for various programming tools.
-Currently they include</p>
+                                <h1 id="bash">BASH</h1>
+<h2 id="reload">Reload</h2>
 <ul>
-<li><a href="https://github.com/vim/vim" target="_blank">Vim</a></li>
-<li><a href="https://tmux.github.io/" target="_blank">Tmux</a></li>
-<li><a href="https://beyondgrep.com/" target="_blank">Ack</a></li>
-<li><a href="https://www.gnu.org/software/bash/" target="_blank">Bash</a></li>
-<li><a href="https://subversion.apache.org/" target="_blank">SVN</a></li>
+<li>Run <code>exec bash</code> to start a new bash terminal in place of the current one.</li>
+</ul>
+<h2 id="bookmarking-locations">Bookmarking locations</h2>
+<ul>
+<li>I use the method described by Jeroen Janssens in his blog <a href="http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html" target="_blank">post</a>.</li>
+<li>I got the jump scripts from <a href="https://github.com/neuhalje/homesick-bash-mark_jump/blob/master/home/.bashrc-plugin.bash-jump.d/common/plugin.conf" target="_blank">here</a>.</li>
+</ul>
+<h2 id="completion">Completion</h2>
+<ul>
+<li>You want to enable extra completion to get completion for e.g. Makefile targets</li>
+<li>The <a href="https://github.com/scop/bash-completion" target="_blank">bash-completion</a> plugin provides this and can be installed via your package manager</li>
+</ul>
+<h2 id="sudoers">Sudoers</h2>
+<ul>
+<li><a href="http://askubuntu.com/questions/7477/how-can-i-add-a-new-user-as-sudoer-using-the-command-line?newreg=069e40909cc04369bfdbfcaec0afadd7" target="_blank">Link</a> showing how to add user to sudoers</li>
+</ul>
+<h2 id="search-and-replace-text-in-a-file">Search and Replace Text in a file</h2>
+<ul>
+<li>Use and external program like perl or sed</li>
+<li><code>perl -pi -e &apos;s/abc/XYZ/g&apos; /tmp/file.txt</code></li>
+<li><code>sed -i -e &apos;s/abc/XYZ/g&apos; /tmp/file.txt</code></li>
+<li><code>mssql-server</code> package ships with a <code>replace</code> tool<ul>
+<li><code>replace &quot;abc&quot; &quot;XYZ&quot; -- file1.txt</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="extract-files-from-an-rpm">Extract Files from an RPM</h2>
+<ul>
+<li><code>rpm2cpio ./packagecloud-test-1.1-1.x86_64.rpm | cpio -idmv</code></li>
+</ul>
+<h2 id="check-the-dependencies-of-a-program">Check the dependencies of a program</h2>
+<ul>
+<li><code>ldd /usr/bin/ffmpeg</code></li>
+</ul>
+<h2 id="extract-column-from-data">Extract column from data</h2>
+<ul>
+<li><code>awk &apos;{print $2}&apos;</code> prints the second column of data</li>
+</ul>
+<h2 id="copy-list-of-files-to-another-folder-and-maintain-folder-structure">Copy list of files to another folder and maintain folder structure</h2>
+<ul>
+<li><code>&lt;command to generate file list&gt; | cpio --pass-through --verbose --make-directories -u ../tmp/f1/f2/</code></li>
+</ul>
+<h2 id="find-unique-entries-in-a-file">Find unique entries in a file</h2>
+<ul>
+<li>If sorted then <code>uniq -c</code></li>
+<li>If not sorted then either <code>sort | uniq -c</code> or <code>awk &apos;~cnts[$0]++&apos;</code>. The awk version has the advantage of not needing to sort the file first so can operate on larger files. See <a href="http://blog.jpalardy.com/posts/unsorted-uniq/" target="_blank">here</a></li>
+</ul>
+<h2 id="tree">Tree</h2>
+<ul>
+<li>This is a useful command to print the contents of a folder in a tree like manner.</li>
+</ul>
+<h2 id="file-system-maintenance">File System maintenance</h2>
+<ul>
+<li><code>lsblk</code> will list the volumes and where they&apos;re mounted in a tree like manner.</li>
+<li><a href="https://www.tecmint.com/extend-and-reduce-lvms-in-linux/" target="_blank">Extend or reduce LVMs</a>. Shows how to create the physical partitions, extend the logical partitions and resize the file system.</li>
+</ul>
+<h2 id="ncdu">Ncdu</h2>
+<ul>
+<li>This is a terminal based program to show disk usage and which folders are taking up the most space. You can navigate the file system from it and delete files and folders. Install using <code>yum</code>.</li>
+</ul>
+<h2 id="wrapping-command-line-tools">Wrapping Command Line tools</h2>
+<ul>
+<li>Can wrap command line tools by creating a function of the same name which performs what every operations you want and then delegates to the built in function. See <a href="http://blog.jpalardy.com/posts/wrapping-command-line-tools/" target="_blank">here</a></li>
+</ul>
+<h2 id="awk">AWK</h2>
+<ul>
+<li>Awk <a href="http://blog.jpalardy.com/posts/my-best-awk-tricks/" target="_blank">tips and tricks</a></li>
+</ul>
+<h2 id="replace-common-prefix-of-files">Replace common prefix of files</h2>
+<ul>
+<li><code>rename &lt;old_prefix&gt; &lt;new_prefix&gt; &lt;files&gt;</code></li>
+</ul>
+<h2 id="git">Git</h2>
+<ul>
+<li>Reset local master to be the same as the remote master branch
+  git fetch origin
+  git reset --hard origin/master</li>
 </ul>
 
                                 
@@ -673,8 +746,12 @@ Currently they include</p>
 
             
                 
+                <a href="tmux/configuring-tmux.html" class="navigation navigation-prev " aria-label="Previous page: Configuring">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="vim/readme.html" class="navigation navigation-next navigation-unique" aria-label="Next page: VIM">
+                
+                <a href="bash/bash-scripting.html" class="navigation navigation-next " aria-label="Next page: Bash Scripting">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -685,7 +762,7 @@ Currently they include</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"VIM","level":"1.2","depth":1,"path":"vim/readme.md","ref":"vim/readme.md","articles":[{"title":"Setting up","level":"1.2.1","depth":2,"path":"vim/setting-up-vim.md","ref":"vim/setting-up-vim.md","articles":[]},{"title":"Usage","level":"1.2.2","depth":2,"path":"vim/vim-usage.md","ref":"vim/vim-usage.md","articles":[]},{"title":"Other Editor's VIM Modes","level":"1.2.3","depth":2,"path":"vim/vim-other-editors.md","ref":"vim/vim-other-editors.md","articles":[]},{"title":"Editing","level":"1.2.4","depth":2,"ref":"","articles":[{"title":"Cut, Copy and Paste","level":"1.2.4.1","depth":3,"path":"vim/editing/vim-cut-copy-paste.md","ref":"vim/editing/vim-cut-copy-paste.md","articles":[]},{"title":"Marks","level":"1.2.4.2","depth":3,"path":"vim/editing/vim-marks.md","ref":"vim/editing/vim-marks.md","articles":[]},{"title":"Undo/Redo","level":"1.2.4.3","depth":3,"path":"vim/editing/vim-undo-redo.md","ref":"vim/editing/vim-undo-redo.md","articles":[]}]},{"title":"Viewing","level":"1.2.5","depth":2,"ref":"","articles":[{"title":"Buffers","level":"1.2.5.1","depth":3,"path":"vim/viewing/vim-buffers.md","ref":"vim/viewing/vim-buffers.md","articles":[]},{"title":"Folding","level":"1.2.5.2","depth":3,"path":"vim/viewing/vim-folding.md","ref":"vim/viewing/vim-folding.md","articles":[]},{"title":"Windows","level":"1.2.5.3","depth":3,"path":"vim/viewing/vim-windows.md","ref":"vim/viewing/vim-windows.md","articles":[]}]},{"title":"Searching","level":"1.2.6","depth":2,"path":"vim/vim-searching.md","ref":"vim/vim-searching.md","articles":[]},{"title":"Multiple Views","level":"1.2.7","depth":2,"path":"vim/vim-multiple-views.md","ref":"vim/vim-multiple-views.md","articles":[]},{"title":"Automation","level":"1.2.8","depth":2,"ref":"","articles":[{"title":"Macros","level":"1.2.8.1","depth":3,"path":"vim.automation/vim-macros.md","ref":"vim.automation/vim-macros.md","articles":[]}]},{"title":"Resources","level":"1.2.9","depth":2,"path":"vim/vim-resources.md","ref":"vim/vim-resources.md","articles":[]},{"title":"Practical VIM","level":"1.2.10","depth":2,"path":"vim/practical-vim/readme.md","ref":"vim/practical-vim/readme.md","articles":[{"title":"The VIM way","level":"1.2.10.1","depth":3,"path":"vim/practical-vim/pv-1-vim-way.md","ref":"vim/practical-vim/pv-1-vim-way.md","articles":[]},{"title":"Normal Mode","level":"1.2.10.2","depth":3,"path":"vim/practical-vim/pv-2-normal-mode.md","ref":"vim/practical-vim/pv-2-normal-mode.md","articles":[]},{"title":"Insert Mode","level":"1.2.10.3","depth":3,"path":"vim/practical-vim/pv-2-insert-mode.md","ref":"vim/practical-vim/pv-2-insert-mode.md","articles":[]}]},{"title":"Vimcasts","level":"1.2.11","depth":2,"path":"vim/vimcasts.md","ref":"vim/vimcasts.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gerard Condon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tools Documentation","links":{"sidebar":{"Gerard Condon":"http://www.gerardcondon.com","Github":"https://github.com/gerardcondon/tools-docs"}},"gitbook":"*"},"file":{"path":"README.md","mtime":"2017-03-13T23:12:08.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-21T23:11:50.739Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Bash","level":"1.4","depth":1,"next":{"title":"Bash Scripting","level":"1.4.1","depth":2,"path":"bash/bash-scripting.md","ref":"bash/bash-scripting.md","articles":[]},"previous":{"title":"Configuring","level":"1.3.2","depth":2,"path":"tmux/configuring-tmux.md","ref":"tmux/configuring-tmux.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gerard Condon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tools Documentation","links":{"sidebar":{"Gerard Condon":"http://www.gerardcondon.com","Github":"https://github.com/gerardcondon/tools-docs"}},"gitbook":"*"},"file":{"path":"bash.md","mtime":"2017-08-21T22:13:53.806Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-21T23:11:50.739Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
