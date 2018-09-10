@@ -17,7 +17,6 @@ cp -R _book/* /tmp/_book
 
 # checkout to the gh-pages branch
 git checkout gh-pages
-git pull origin gh-pages --rebase
 cd ..
 rm -rf *
 cp -R /tmp/_book/* .
