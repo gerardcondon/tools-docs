@@ -33,3 +33,4 @@
   * [Stow](stow.md)
   * [Docker](docker.md)
   * [Tsung](tsung.md)
+  * [Vault](vault.md)
