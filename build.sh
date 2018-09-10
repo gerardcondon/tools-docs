@@ -3,8 +3,8 @@
 set -euo pipefail
 set -x
 
-#git config --global user.name "$USER_NAME"
-#git config --global user.email "$USER_EMAIL"
+git config --global user.name "$USER_NAME"
+git config --global user.email "$USER_EMAIL"
 
 git submodule init
 git submodule update
@@ -27,4 +27,4 @@ rm -rf gitbook
 git add -A .
 git commit -a -m "Update docs [ci skip]"
 
-#git push origin gh-pages
+git push origin gh-pages
