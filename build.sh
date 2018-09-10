@@ -9,7 +9,7 @@ git config --global user.email "$USER_EMAIL"
 git submodule init
 git submodule update
 
-npm -g install gitbook-cli
+npm install gitbook-cli
 cd docs
 gitbook build
 mkdir -p /tmp/_book
