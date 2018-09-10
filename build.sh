@@ -21,7 +21,6 @@ cd ..
 rm -rf *
 cp -R /tmp/_book/* .
 rm -rf docs
-rm -rf gitbook
 
 git add -A .
 git commit -a -m "Update docs [ci skip]"
