@@ -9,7 +9,7 @@ set -x
 git submodule init
 git submodule update
 
-npm -g install gitbook
+npm -g install gitbook-cli
 cd docs
 gitbook build
 
@@ -21,6 +21,6 @@ cp -R docs/_book/* .
 
 git clean -fx docs/_book
 git add .
-git commit -a -m "Update docs"
+git commit -a -m "Update docs [ci skip]"
 
 #git push origin gh-pages
