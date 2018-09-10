@@ -18,6 +18,8 @@ git checkout gh-pages
 git pull origin gh-pages --rebase
 cd ..
 cp -R docs/_book/* .
+rm -rf docs
+rm -rf gitbook
 
 git clean -fx docs/_book
 git add .
