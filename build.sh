@@ -12,17 +12,18 @@ git submodule update
 npm -g install gitbook-cli
 cd docs
 gitbook build
+cp -R docs/_book/* /tmp/_book
 
 # checkout to the gh-pages branch
 git checkout gh-pages
 git pull origin gh-pages --rebase
 cd ..
-cp -R docs/_book/* .
+rm -rf *
+cp -R /tmp/_book/* .
 rm -rf docs
 rm -rf gitbook
 
-git clean -fx docs/_book
-git add .
+git add -A .
 git commit -a -m "Update docs [ci skip]"
 
 #git push origin gh-pages
