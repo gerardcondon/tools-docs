@@ -1,0 +1,829 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Vimcasts · Tools Documentation</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Gerard Condon">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../tmux/readme.html" />
+    
+    
+    <link rel="prev" href="practical-vim/pv-2-insert-mode.md" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://www.gerardcondon.com" target="_blank" class="custom-link">Gerard Condon</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://github.com/gerardcondon/tools-docs" target="_blank" class="custom-link">Github</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="readme.html">
+            
+                <a href="readme.html">
+            
+                    
+                    VIM
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="setting-up-vim.html">
+            
+                <a href="setting-up-vim.html">
+            
+                    
+                    Setting up
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="vim-usage.html">
+            
+                <a href="vim-usage.html">
+            
+                    
+                    Usage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="vim-other-editors.html">
+            
+                <a href="vim-other-editors.html">
+            
+                    
+                    Other Editor's VIM Modes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" >
+            
+                <span>
+            
+                    
+                    Editing
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="editing/vim-cut-copy-paste.html">
+            
+                <a href="editing/vim-cut-copy-paste.html">
+            
+                    
+                    Cut, Copy and Paste
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.2" data-path="editing/vim-marks.html">
+            
+                <a href="editing/vim-marks.html">
+            
+                    
+                    Marks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.3" data-path="editing/vim-undo-redo.html">
+            
+                <a href="editing/vim-undo-redo.html">
+            
+                    
+                    Undo/Redo
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" >
+            
+                <span>
+            
+                    
+                    Viewing
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.5.1" data-path="viewing/vim-buffers.html">
+            
+                <a href="viewing/vim-buffers.html">
+            
+                    
+                    Buffers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.2" data-path="viewing/vim-folding.html">
+            
+                <a href="viewing/vim-folding.html">
+            
+                    
+                    Folding
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3" data-path="viewing/vim-windows.html">
+            
+                <a href="viewing/vim-windows.html">
+            
+                    
+                    Windows
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="vim-searching.html">
+            
+                <a href="vim-searching.html">
+            
+                    
+                    Searching
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="vim-multiple-views.md">
+            
+                <span>
+            
+                    
+                    Multiple Views
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" >
+            
+                <span>
+            
+                    
+                    Automation
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.8.1" data-path="../vim.automation/vim-macros.md">
+            
+                <span>
+            
+                    
+                    Macros
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="vim-resources.html">
+            
+                <a href="vim-resources.html">
+            
+                    
+                    Resources
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="practical-vim/readme.html">
+            
+                <a href="practical-vim/readme.html">
+            
+                    
+                    Practical VIM
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.10.1" data-path="practical-vim/pv-1-vim-way.html">
+            
+                <a href="practical-vim/pv-1-vim-way.html">
+            
+                    
+                    The VIM way
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10.2" data-path="practical-vim/pv-2-normal-mode.html">
+            
+                <a href="practical-vim/pv-2-normal-mode.html">
+            
+                    
+                    Normal Mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10.3" data-path="practical-vim/pv-2-insert-mode.md">
+            
+                <span>
+            
+                    
+                    Insert Mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.11" data-path="vimcasts.html">
+            
+                <a href="vimcasts.html">
+            
+                    
+                    Vimcasts
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../tmux/readme.html">
+            
+                <a href="../tmux/readme.html">
+            
+                    
+                    Tmux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../tmux/tmux.html">
+            
+                <a href="../tmux/tmux.html">
+            
+                    
+                    Basics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../tmux/configuring-tmux.html">
+            
+                <a href="../tmux/configuring-tmux.html">
+            
+                    
+                    Configuring
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../bash.html">
+            
+                <a href="../bash.html">
+            
+                    
+                    Bash
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../bash/bash-scripting.html">
+            
+                <a href="../bash/bash-scripting.html">
+            
+                    
+                    Bash Scripting
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../svn.html">
+            
+                <a href="../svn.html">
+            
+                    
+                    Subversion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    Misc
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../ack.html">
+            
+                <a href="../ack.html">
+            
+                    
+                    Ack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../stow.html">
+            
+                <a href="../stow.html">
+            
+                    
+                    Stow
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../docker.html">
+            
+                <a href="../docker.html">
+            
+                    
+                    Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../tsung.html">
+            
+                <a href="../tsung.html">
+            
+                    
+                    Tsung
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Vimcasts</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="vimcasts">Vimcasts</h1>
+<p>These notes are based on <a href="http://www.vimcasts.org" target="_blank">VimCasts</a></p>
+<h2 id="whitespace">Whitespace</h2>
+<h2 id="1-show-invisibles">1. Show invisibles</h2>
+<ul>
+<li><p>Add keybinding to toggle between showing visible and non-visible characters</p>
+<pre><code class="lang-vim">&quot; Shortcut to rapidly toggle `set list`
+nmap &lt;leader&gt;l :set list!&lt;CR&gt;
+</code></pre>
+</li>
+<li><p>To change to use more standard keybindings</p>
+<pre><code class="lang-vim"><span class="hljs-comment">&quot; Use the same symbols as TextMate for tabstops and EOLs</span>
+<span class="hljs-keyword">set</span> listchars=<span class="hljs-keyword">ta</span><span class="hljs-variable">b:</span>&#x25B8;\ ,eo<span class="hljs-variable">l:</span>&#xAC;
+</code></pre>
+</li>
+<li><p>Can update colour schemes to make these more discreet</p>
+</li>
+</ul>
+<p><a href="http://vimcasts.org/episodes/show-invisibles/" target="_blank">Screencast Link</a></p>
+<h2 id="2-tabs-and-spaces">2. Tabs and Spaces</h2>
+<ul>
+<li><strong>Tabstop</strong> Specifies the width of a tab character</li>
+<li><strong>Expandtab</strong> When enabled, uses spaces instead of tabs</li>
+<li><strong>Softtabstop</strong> Fine tunes the amount of whitespace to be inserted</li>
+<li><p><strong>Shiftwidth</strong> the amount of whitespace to insert or remove using the indentation commands</p>
+</li>
+<li><p>Using spaces ensure that <code>softtabstop == shiftwidth</code></p>
+</li>
+</ul>
+<h2 id="3-whitespace-preferences-and-filetypes">3. Whitespace preferences and filetypes</h2>
+<ul>
+<li>Can change whitespace settings for a particular filetype using <code>autocmd FileType &lt;filename&gt;</code>.</li>
+<li><p>For example, make requires tabs to indent instead of spaces so can use <code>autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab</code></p>
+</li>
+<li><p><code>autocmd FileType javascript &lt;command&gt;</code> will execute the command whenever the filetype changes to javascript</p>
+</li>
+<li><p><code>setlocal</code> ensures that whatever changes are only made to the open buffer and not globally.</p>
+</li>
+<li><p>To enable filetype detection add <code>filetype on</code> to the <code>.vimrc</code> file.</p>
+</li>
+<li><p>In the <code>.vimrc</code> can use <code>if has(&quot;autocmd&quot;)</code> so that on a vim without autocmd support, the FileType commands will be skipped</p>
+</li>
+<li><p>To treat a specific filetype as another use the <code>setfiletype</code> command. For example, <code>autocmd BufNewFile,BufRead *.rss setfiletype xml</code></p>
+</li>
+</ul>
+<h2 id="5-indentation-commands">5. Indentation Commands</h2>
+<ul>
+<li>Use the angle bracket keys to indent.</li>
+<li>In normal mode use <code>&gt;&gt;</code> to indent the current line. Prepend this with a count to indent a number of lines</li>
+<li>In visual mode use a single &apos;&gt;&apos; to indent the visual selection. This will drop you back out of visual mode. Use the <code>.</code> operator to repeat the indentation and <code>u</code> to undo the indentation.</li>
+<li><code>&lt;&lt;</code> and <code>&lt;</code> unindents</li>
+<li>Use <code>==</code> to auto-indent the current line (<code>=</code> in visual mode)</li>
+<li>These commands can be used with motions e.g. <code>=i}</code> will auto-indent the current inner block. <code>=G</code> will auto-indent until the end of the file.</li>
+</ul>
+<h2 id="6-working-with-buffers">6. Working with Buffers</h2>
+<ul>
+<li><code>:ls</code> - show the buffer list</li>
+<li><code>:bn</code> - open the next buffer</li>
+<li><code>:bp</code> - open the previous buffer</li>
+<li><code>Ctrl-^</code> - switch to the alternate file (displayed with the # in ls)</li>
+</ul>
+<h3 id="hidden-buffers">Hidden Buffers</h3>
+<ul>
+<li><code>+</code> sign in ls means that the buffer has been modified</li>
+<li>A hidden buffer has unsaved changed and is not loaded in a window</li>
+<li><code>:w</code> saves the buffer</li>
+<li><code>:e!</code> reverts any changes</li>
+<li><code>:q!</code> quits Vim and discards any changes in any buffers.</li>
+</ul>
+<h2 id="7-working-with-windows">7. Working with Windows</h2>
+<ul>
+<li>We can split the current window and open the same file in the new window. This gives us two views into the same file.<ul>
+<li><code>Ctrl-w s</code> split the window horizontally</li>
+<li><code>Ctrl-w v</code> split the window vertically</li>
+</ul>
+</li>
+<li>We can also open a different file in the new window<ul>
+<li><code>:sp filename</code> open filename in a new horizontal split</li>
+<li><code>:vsp filename</code> open filename in a new vertical split</li>
+</ul>
+</li>
+</ul>
+<h3 id="closing-split-windows">Closing split windows</h3>
+<ul>
+<li><code>:q[uit]</code> closes the current window</li>
+<li><code>:on[ly]</code> closes all the other windows except for the currently active one</li>
+</ul>
+<h3 id="navigating-between-windows">Navigating between windows</h3>
+<ul>
+<li><code>Ctrl-w w</code> cycle between the open windows</li>
+<li><code>Ctrl-w h</code> move to the window on the left</li>
+<li><code>Ctrl-w j</code> move to the window below</li>
+<li><code>Ctrl-w k</code> move to the window above</li>
+<li><code>Ctrl-w l</code> move to the window on the right</li>
+</ul>
+<p><a href="http://vimcasts.org/episodes/working-with-windows/" target="_blank">VimCast Episode 7</a></p>
+<h2 id="8-working-with-tabs">8. Working with tabs</h2>
+<p>In Vim tabs are used to have different layouts for viewing buffers. The same buffer can be open in multiple tabs.</p>
+<ul>
+<li><code>:tabedit filename</code> opens the file in a new tab</li>
+<li><code>Ctrl-W T</code> moves the current split window to its own tab</li>
+<li><code>:tabclose</code> closes the current tab page and all its windows</li>
+<li><code>:tabonly</code> closes all other tabs except the current tab</li>
+</ul>
+<h3 id="navigating-between-tabs">Navigating between tabs</h3>
+<ul>
+<li><code>gt</code> move to the next tab</li>
+<li><code>gT</code> move to the previous tab</li>
+<li><code>&lt;number&gt;gt</code> move to the specific tab number. Note that tabs are numbered from 0.</li>
+<li><code>:tabmove</code> move the tab to the end.</li>
+<li><code>:tabmove &lt;number&gt;</code> move the tab to the specified tab position.</li>
+</ul>
+<p><a href="http://vimcasts.org/episodes/working-with-tabs/" target="_blank">VimCast Episode 8</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="practical-vim/pv-2-insert-mode.md" class="navigation navigation-prev " aria-label="Previous page: Insert Mode">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../tmux/readme.html" class="navigation navigation-next " aria-label="Next page: Tmux">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Vimcasts","level":"1.2.11","depth":2,"next":{"title":"Tmux","level":"1.3","depth":1,"path":"tmux/readme.md","ref":"tmux/readme.md","articles":[{"title":"Basics","level":"1.3.1","depth":2,"path":"tmux/tmux.md","ref":"tmux/tmux.md","articles":[]},{"title":"Configuring","level":"1.3.2","depth":2,"path":"tmux/configuring-tmux.md","ref":"tmux/configuring-tmux.md","articles":[]}]},"previous":{"title":"Insert Mode","level":"1.2.10.3","depth":3,"path":"vim/practical-vim/pv-2-insert-mode.md","ref":"vim/practical-vim/pv-2-insert-mode.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gerard Condon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tools Documentation","links":{"sidebar":{"Gerard Condon":"http://www.gerardcondon.com","Github":"https://github.com/gerardcondon/tools-docs"}},"gitbook":"*"},"file":{"path":"vim/vimcasts.md","mtime":"2018-09-10T22:09:08.347Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-10T22:10:06.966Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
