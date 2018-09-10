@@ -1,0 +1,15 @@
+{
+    "title": "Tools Documentation",
+    "author": "Gerard Condon",
+    
+    "plugins": ["-sharing"],
+    
+  "links": {
+    "sidebar": {
+        "Gerard Condon": "http://www.gerardcondon.com",
+        "Github": "https://github.com/gerardcondon/tools-docs"
+    }
+  }
+   
+
+}
