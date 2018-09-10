@@ -12,7 +12,7 @@ git submodule update
 npm -g install gitbook-cli
 cd docs
 gitbook build
-cp -R docs/_book/* /tmp/_book
+cp -R _book/* /tmp/_book
 
 # checkout to the gh-pages branch
 git checkout gh-pages
