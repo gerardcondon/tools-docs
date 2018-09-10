@@ -15,6 +15,3 @@ jobs:
       - run:
           name: Execute the build script
           command: ./build.sh
-      - run:
-          name: Print the contents of the website directory
-          command: ls website/build
