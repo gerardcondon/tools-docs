@@ -10,6 +10,7 @@ git submodule init
 git submodule update
 
 sudo npm install -g gitbook-cli
+gitbook install
 cd docs
 gitbook build
 mkdir -p /tmp/_book
