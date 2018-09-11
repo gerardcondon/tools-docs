@@ -2,7 +2,7 @@
     "title": "Tools Documentation",
     "author": "Gerard Condon",
     
-    "plugins": ["-sharing"],
+    "plugins": ["-sharing", "collapsible-menu"],
     
   "links": {
     "sidebar": {
