@@ -652,12 +652,44 @@
                                 <h1 id="vault">Vault</h1>
 <ul>
 <li>Created by Hashicorp (e.g. Vagrant)</li>
-<li>Tool for managing secrets. It controls access to tokens, passwords, certificates, API keys etc.</li>
-<li>Handles leasing, key revocation, key rolling and auditing.</li>
+<li>Tool for managing secrets and storing them encrypted. It controls access to tokens, passwords, certificates, API keys etc - things that would normally not be checked into a source control system.</li>
+<li><p>It can handle all aspects of sensitive information - generation, storage, usage and revocation.</p>
+</li>
+<li><p>Seal?</p>
+</li>
+</ul>
+<h2 id="interface">Interface</h2>
+<ul>
+<li>Vault is a go application with a REST/CLI interface</li>
+<li>CLI uses <code>vault</code> binary with subcommands (similar to git)</li>
+<li>REST API uses GET/POST/DELETE passing the token with the header <code>X-Vault-Token</code>.</li>
+<li>Can use Ansible to make REST requests to Vault and do something with the output</li>
+</ul>
+<h2 id="secrets">Secrets</h2>
+<ul>
 <li>Can store existing secrests or can dynamically generate new secrets to control access to third party resources or provide time limited access.</li>
+<li><code>write</code> and <code>read</code> secrets from the vault.</li>
+</ul>
+<h2 id="keys">Keys</h2>
+<ul>
+<li>Handles leasing, key revocation, key rolling and auditing.</li>
 <li>Access control policies control who can access what.</li>
 <li>Keys can be rolled to new versions while retaining ability to decrypt older secrets.</li>
 <li>Audit logs track all authenticated client interaction. These logs can be sent to multiple backends for further processing.</li>
+</ul>
+<h2 id="token">Token</h2>
+<ul>
+<li><code>token-create</code> creates a new token</li>
+</ul>
+<h2 id="backends">Backends</h2>
+<ul>
+<li>Vault has a few backends. These are virtual file systems with some logic</li>
+<li>For example, AWS backend will create IAM credentials on demand - dynamic secrets.</li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://github.com/hashicorp/vault" target="_blank">Hashicorp Github Page</a></li>
+<li><a href="https://hackernoon.com/a-little-hashicorp-vault-introduction-d28382487b9f" target="_blank">https://hackernoon.com/a-little-hashicorp-vault-introduction-d28382487b9f</a></li>
 </ul>
 
                                 
@@ -698,7 +730,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Vault","level":"1.6.5","depth":2,"previous":{"title":"Tsung","level":"1.6.4","depth":2,"path":"tsung.md","ref":"tsung.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gerard Condon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tools Documentation","links":{"sidebar":{"Gerard Condon":"http://www.gerardcondon.com","Github":"https://github.com/gerardcondon/tools-docs"}},"gitbook":"*"},"file":{"path":"vault.md","mtime":"2018-09-10T22:32:27.527Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-10T22:33:26.478Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Vault","level":"1.6.5","depth":2,"previous":{"title":"Tsung","level":"1.6.4","depth":2,"path":"tsung.md","ref":"tsung.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","collapsible-menu"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gerard Condon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tools Documentation","links":{"sidebar":{"Gerard Condon":"http://www.gerardcondon.com","Github":"https://github.com/gerardcondon/tools-docs"}},"gitbook":"*"},"file":{"path":"vault.md","mtime":"2018-09-11T14:36:29.535Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-11T14:37:34.751Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -706,6 +738,10 @@
         
     <script src="gitbook/gitbook.js"></script>
     <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
     
         
         <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
