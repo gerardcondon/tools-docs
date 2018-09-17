@@ -13,9 +13,9 @@
     * [Folding](vim/viewing/vim-folding.md)
     * [Windows](vim/viewing/vim-windows.md)
   * [Searching](vim/vim-searching.md)
-  * [Multiple Views](vim/vim-multiple-views.md)
   * Automation
-    - [Macros](vim.automation/vim-macros.md)
+    - [Macros](vim/automation/vim-macros.md)
+    - [Scripting](vim/automation/vim-script.md)
   * [Resources](vim/vim-resources.md)
   * [Practical VIM](vim/practical-vim/readme.md)
       - [The VIM way](vim/practical-vim/pv-1-vim-way.md)

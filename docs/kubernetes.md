@@ -45,6 +45,27 @@
 
 ## Pod
 
+* Atomic unit on the Kubernetes platform - always runs on a node.
 * Abstraction that represents a group of one or more application containers and some shared resources for the containers e.g. shared storage, networking
-* Models a 
+* Models an application specific logical host - can contain different application containers which are tightly coupled.
 * Run inside Kubernetes on a private, isolated network - visible inside the cluster but not outside the network
+
+## Services
+
+* An abstraction layer which defines a logical set of Pods and enables external traffix exposure, load balancing and service discovery for those pods
+* Enable a loose coupling between dependent pods. This is defined by a YAML file.
+* Routes traffic across a set of Pods - allows pods to die and replicate without impacting the application
+* Services match a set of Pods using labels and selectors
+* Pod IP addresses are private unless exposes outside the cluster by using a service.
+* There are a few different types of service:
+    * ClusterIP - default - internal IP in the cluster
+    * NodePort - exposes service on <NodeIP>:<NodePort> for each node in the cluster
+    * LoadBalancer - Fixed external IP to the Service - superset of NodePort
+    * ExternalName - Exposes the service using an arbitrary name via CNAME record
+
+## Kubectl Commands
+
+* `kubectl get` - list resources
+* `kubectl describe` - shows detailed information about a resource
+* `kubectl logs` - print the logs from a container in a pod
+* `kubectl exec` - execute a command on a container in a pod
