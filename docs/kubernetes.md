@@ -63,6 +63,18 @@
     * LoadBalancer - Fixed external IP to the Service - superset of NodePort
     * ExternalName - Exposes the service using an arbitrary name via CNAME record
 
+## Scaling
+
+* Accomplished by changing the number of replicas in a Deployment
+* New pods are created and scheduled to nodes.
+* Can scale to a desired number or autoscaling of pods is supported.
+* Services have an integrated load balancer to distribute traffic to all pods
+
+## Rolling Updates
+
+* Allow deployments to take place with zero downtime by incrementally updating pod instances with new ones
+* Allow rollback to previous versions
+
 ## Kubectl Commands
 
 * `kubectl get` - list resources
