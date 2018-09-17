@@ -300,20 +300,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.7" data-path="vim/vim-multiple-views.md">
-            
-                <span>
-            
-                    
-                    Multiple Views
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.8" >
+        <li class="chapter " data-level="1.2.7" >
             
                 <span>
             
@@ -327,12 +314,25 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.8.1" data-path="vim.automation/vim-macros.md">
+        <li class="chapter " data-level="1.2.7.1" data-path="vim/automation/vim-macros.html">
             
-                <span>
+                <a href="vim/automation/vim-macros.html">
             
                     
                     Macros
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.2" data-path="vim/automation/vim-script.html">
+            
+                <a href="vim/automation/vim-script.html">
+            
+                    
+                    Scripting
             
                 </a>
             
@@ -345,7 +345,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.9" data-path="vim/vim-resources.html">
+        <li class="chapter " data-level="1.2.8" data-path="vim/vim-resources.html">
             
                 <a href="vim/vim-resources.html">
             
@@ -358,7 +358,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.10" data-path="vim/practical-vim/readme.html">
+        <li class="chapter " data-level="1.2.9" data-path="vim/practical-vim/readme.html">
             
                 <a href="vim/practical-vim/readme.html">
             
@@ -372,7 +372,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.10.1" data-path="vim/practical-vim/pv-1-vim-way.html">
+        <li class="chapter " data-level="1.2.9.1" data-path="vim/practical-vim/pv-1-vim-way.html">
             
                 <a href="vim/practical-vim/pv-1-vim-way.html">
             
@@ -385,7 +385,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.10.2" data-path="vim/practical-vim/pv-2-normal-mode.html">
+        <li class="chapter " data-level="1.2.9.2" data-path="vim/practical-vim/pv-2-normal-mode.html">
             
                 <a href="vim/practical-vim/pv-2-normal-mode.html">
             
@@ -398,7 +398,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.10.3" data-path="vim/practical-vim/pv-2-insert-mode.md">
+        <li class="chapter " data-level="1.2.9.3" data-path="vim/practical-vim/pv-2-insert-mode.md">
             
                 <span>
             
@@ -416,7 +416,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.11" data-path="vim/vimcasts.html">
+        <li class="chapter " data-level="1.2.10" data-path="vim/vimcasts.html">
             
                 <a href="vim/vimcasts.html">
             
@@ -717,9 +717,32 @@
 </ul>
 <h2 id="pod">Pod</h2>
 <ul>
+<li>Atomic unit on the Kubernetes platform - always runs on a node.</li>
 <li>Abstraction that represents a group of one or more application containers and some shared resources for the containers e.g. shared storage, networking</li>
-<li>Models a </li>
+<li>Models an application specific logical host - can contain different application containers which are tightly coupled.</li>
 <li>Run inside Kubernetes on a private, isolated network - visible inside the cluster but not outside the network</li>
+</ul>
+<h2 id="services">Services</h2>
+<ul>
+<li>An abstraction layer which defines a logical set of Pods and enables external traffix exposure, load balancing and service discovery for those pods</li>
+<li>Enable a loose coupling between dependent pods. This is defined by a YAML file.</li>
+<li>Routes traffic across a set of Pods - allows pods to die and replicate without impacting the application</li>
+<li>Services match a set of Pods using labels and selectors</li>
+<li>Pod IP addresses are private unless exposes outside the cluster by using a service.</li>
+<li>There are a few different types of service:<ul>
+<li>ClusterIP - default - internal IP in the cluster</li>
+<li>NodePort - exposes service on <nodeip>:<nodeport> for each node in the cluster</nodeport></nodeip></li>
+<li>LoadBalancer - Fixed external IP to the Service - superset of NodePort</li>
+<li>ExternalName - Exposes the service using an arbitrary name via CNAME record</li>
+</ul>
+</li>
+</ul>
+<h2 id="kubectl-commands">Kubectl Commands</h2>
+<ul>
+<li><code>kubectl get</code> - list resources</li>
+<li><code>kubectl describe</code> - shows detailed information about a resource</li>
+<li><code>kubectl logs</code> - print the logs from a container in a pod</li>
+<li><code>kubectl exec</code> - execute a command on a container in a pod</li>
 </ul>
 
                                 
@@ -760,7 +783,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Kubernetes","level":"1.6.6","depth":2,"previous":{"title":"Vault","level":"1.6.5","depth":2,"path":"vault.md","ref":"vault.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","collapsible-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gerard Condon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tools Documentation","links":{"sidebar":{"Gerard Condon":"http://www.gerardcondon.com","Github":"https://github.com/gerardcondon/tools-docs"}},"gitbook":"*"},"file":{"path":"kubernetes.md","mtime":"2018-09-14T15:49:27.950Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-14T15:50:53.482Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Kubernetes","level":"1.6.6","depth":2,"previous":{"title":"Vault","level":"1.6.5","depth":2,"path":"vault.md","ref":"vault.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","collapsible-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gerard Condon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tools Documentation","links":{"sidebar":{"Gerard Condon":"http://www.gerardcondon.com","Github":"https://github.com/gerardcondon/tools-docs"}},"gitbook":"*"},"file":{"path":"kubernetes.md","mtime":"2018-09-17T12:59:15.847Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-17T13:00:30.082Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
