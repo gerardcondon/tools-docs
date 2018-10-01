@@ -771,6 +771,20 @@
 <li><code>kubectl logs</code> - print the logs from a container in a pod</li>
 <li><code>kubectl exec</code> - execute a command on a container in a pod</li>
 </ul>
+<h2 id="python-client">Python Client</h2>
+<ul>
+<li><a href="https://github.com/kubernetes-client/python" target="_blank">Github</a>, <a href="https://github.com/kubernetes-client/python/blob/master/kubernetes/README.md" target="_blank">Docs</a></li>
+<li>Configuration file can be loaded using <code>config.load_kube_config(config_file_path)</code></li>
+<li>Create an instance of the API using <code>api_instance = client.CoreV1Api()</code></li>
+<li>Operations on the API can be invoked using the functions specified in the docs. They return an object which has the json parsed into instance variables.</li>
+<li>You use the api to get a high level object e.g. service and then use python code to drill down into that object.</li>
+<li>For example, <code>service = api_instance.read_namespaced_service(service_name, namespace)</code> returns the service object which can be queried like <code>service.status</code></li>
+</ul>
+<h2 id="api">API</h2>
+<ul>
+<li>Can be invoked using curl</li>
+<li><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.11/#-strong-api-overview-strong-" target="_blank">Docs</a></li>
+</ul>
 
                                 
                                 </section>
@@ -814,7 +828,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Kubernetes","level":"1.6.6","depth":2,"next":{"title":"Ansible","level":"1.6.7","depth":2,"path":"ansible.md","ref":"ansible.md","articles":[]},"previous":{"title":"Vault","level":"1.6.5","depth":2,"path":"vault.md","ref":"vault.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","collapsible-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gerard Condon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tools Documentation","links":{"sidebar":{"Gerard Condon":"http://www.gerardcondon.com","Github":"https://github.com/gerardcondon/tools-docs"}},"gitbook":"*"},"file":{"path":"kubernetes.md","mtime":"2018-09-17T17:03:50.319Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-17T17:05:34.652Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Kubernetes","level":"1.6.6","depth":2,"next":{"title":"Ansible","level":"1.6.7","depth":2,"path":"ansible.md","ref":"ansible.md","articles":[]},"previous":{"title":"Vault","level":"1.6.5","depth":2,"path":"vault.md","ref":"vault.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","collapsible-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gerard Condon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tools Documentation","links":{"sidebar":{"Gerard Condon":"http://www.gerardcondon.com","Github":"https://github.com/gerardcondon/tools-docs"}},"gitbook":"*"},"file":{"path":"kubernetes.md","mtime":"2018-10-01T11:34:41.624Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T11:35:56.703Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

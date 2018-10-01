@@ -684,7 +684,7 @@
 <li>IT Automation &amp; Orchestration Engine</li>
 <li>Automation Language to describe an IT Application - human and machine readable</li>
 <li>Tasks executed in order</li>
-<li>Agentless - SSH to automate - no other software to install or ports to open</li>
+<li>Agentless - SSH to automate - no other software to install or ports to open - no resources consumed on target machines when Ansible is not managing them.</li>
 </ul>
 <h2 id="components">Components</h2>
 <ul>
@@ -712,6 +712,35 @@
 <h2 id="galaxy">Galaxy</h2>
 <ul>
 <li>Community and vendor provided Ansible Roles to help get started faster</li>
+</ul>
+<h2 id="architecture">Architecture</h2>
+<ul>
+<li>Ansible connects to the nodes and pushes out small programs called modules to them.</li>
+<li>It invokes these via SSH and removes them once finished</li>
+<li>Should use SSH keys instead of passwords. Can login as any user and su or sudo to another user.</li>
+</ul>
+<h2 id="inventories">Inventories</h2>
+<ul>
+<li>Ansible represents the machines it manages in simple INI files called inventories</li>
+<li>Machines can be grouped together</li>
+<li>If there is another source of truth for the infrastructure then Ansible can plugin to that - dynamic inventories</li>
+</ul>
+<h2 id="playbooks">Playbooks</h2>
+<ul>
+<li>Include features that allow for complex automation flow<ul>
+<li>conditional execution of tasks</li>
+<li>gather variables and information from the remote system</li>
+<li>spawn long running tasks asynchronously</li>
+<li>check mode to test for pending changes</li>
+<li>Tag plays and tasks</li>
+</ul>
+</li>
+</ul>
+<h2 id="extensibility">Extensibility</h2>
+<ul>
+<li>Can write custom modules in any language - only required to take JSON as input and produce JSON as output</li>
+<li>Dynamic inventories allow for Ansible playbooks to be run against machines discovered at runtime</li>
+<li>Can write plugins for Ansible itself e.g. output plugin to handle Ansible output and send it somewhere, or connection plugin to connect to or discover new nodes</li>
 </ul>
 
                                 
@@ -752,7 +781,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Ansible","level":"1.6.7","depth":2,"previous":{"title":"Kubernetes","level":"1.6.6","depth":2,"path":"kubernetes.md","ref":"kubernetes.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","collapsible-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gerard Condon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tools Documentation","links":{"sidebar":{"Gerard Condon":"http://www.gerardcondon.com","Github":"https://github.com/gerardcondon/tools-docs"}},"gitbook":"*"},"file":{"path":"ansible.md","mtime":"2018-09-17T17:03:50.319Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-17T17:05:34.652Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Ansible","level":"1.6.7","depth":2,"previous":{"title":"Kubernetes","level":"1.6.6","depth":2,"path":"kubernetes.md","ref":"kubernetes.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","collapsible-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gerard Condon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tools Documentation","links":{"sidebar":{"Gerard Condon":"http://www.gerardcondon.com","Github":"https://github.com/gerardcondon/tools-docs"}},"gitbook":"*"},"file":{"path":"ansible.md","mtime":"2018-10-01T11:34:41.620Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T11:35:56.703Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
