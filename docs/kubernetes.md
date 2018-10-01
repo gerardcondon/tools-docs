@@ -81,3 +81,17 @@
 * `kubectl describe` - shows detailed information about a resource
 * `kubectl logs` - print the logs from a container in a pod
 * `kubectl exec` - execute a command on a container in a pod
+
+## Python Client
+
+* [Github](https://github.com/kubernetes-client/python), [Docs](https://github.com/kubernetes-client/python/blob/master/kubernetes/README.md)
+* Configuration file can be loaded using `config.load_kube_config(config_file_path)`
+* Create an instance of the API using `api_instance = client.CoreV1Api()`
+* Operations on the API can be invoked using the functions specified in the docs. They return an object which has the json parsed into instance variables.
+* You use the api to get a high level object e.g. service and then use python code to drill down into that object.
+* For example, `service = api_instance.read_namespaced_service(service_name, namespace)` returns the service object which can be queried like `service.status`
+
+## API
+
+* Can be invoked using curl
+* [Docs](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.11/#-strong-api-overview-strong-)
