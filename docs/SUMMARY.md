@@ -28,6 +28,9 @@
 * [Bash](bash.md)
   - [Bash Scripting](bash/bash-scripting.md)
 * [Subversion](svn.md)
+* [Ansible](ansible.md)
+  * [Playbooks](ansible-playbooks.md)
+  * [Jinja](ansible-jinja.md)
 * Misc
   * [Ack](ack.md)
   * [Stow](stow.md)
@@ -35,4 +38,3 @@
   * [Tsung](tsung.md)
   * [Vault](vault.md)
   * [Kubernetes](kubernetes.md)
-  * [Ansible](ansible.md)
