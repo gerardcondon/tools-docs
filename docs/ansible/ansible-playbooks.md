@@ -39,3 +39,10 @@
 ## Conditionals
 * `when:` clauses can be used to conditionally execute tasks
 * This takes a raw Jinja2 expression without the curly braces
+
+## Loops
+* Can use `loop:` tag with a list
+* Can use `query` to return the list
+* Can use do until loops to handle retries
+* Can use register to capture all output from the loop
+* Ansible sets the variable `item` for each iteration of the loop
