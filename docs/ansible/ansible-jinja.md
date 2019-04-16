@@ -1,5 +1,6 @@
 # Jinja
 
+{% raw %}
 ## Filters
 * Part of `jinja2` but Ansible ships with its own also.
 * Can transform data e.g. `{{ my_var | to_nice_json }}`.
@@ -15,3 +16,4 @@
 
 ## Lookups
 * Way to query external data sources e.g. `"{{ lookup('file', '/etc/stuff') }}"`
+{% endraw %}
