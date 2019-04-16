@@ -1,0 +1,324 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Python · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="python-hard-way.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2" data-path="python.html">
+            
+                <a href="python.html">
+            
+                    
+                    Python
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="python-hard-way.html">
+            
+                <a href="python-hard-way.html">
+            
+                    
+                    Python Hard Way Notes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="python-snippets.html">
+            
+                <a href="python-snippets.html">
+            
+                    
+                    Snippets
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Python</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="python">Python</h1>
+<p>I created this document as I was learning Python and it archives some of the tools and tips I found during this process.</p>
+<h2 id="version">Version</h2>
+<ul>
+<li>There are two strands of Python. The 2.x and 3.x branches. Officical support for 2.x is due to end in the next few years however it is still popular as a lot of companies would have legacy code written for 2.x.</li>
+</ul>
+<h2 id="style-guide">Style Guide</h2>
+<ul>
+<li><a href="https://www.python.org/dev/peps/pep-0008/" target="_blank">Pep8</a> seems to be the standard coding guidlines for Python. It is based on the original standards that Guido van Rossum created.</li>
+<li>Example Google DocString <a href="http://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html" target="_blank">style</a></li>
+</ul>
+<h2 id="tools">Tools</h2>
+<p>There are a number of tools written to check the quality of Python code. These will typically check the Pep8 standard along with other coding best practice checks.</p>
+<ul>
+<li><a href="https://pypi.python.org/pypi/flake8/" target="_blank">Flake8</a></li>
+<li><a href="https://www.pylint.org/" target="_blank">Pylint</a></li>
+<li><a href="https://github.com/openstack/bandit" target="_blank">Bandit</a></li>
+<li><p><a href="https://github.com/google/yapf" target="_blank">yapf</a></p>
+</li>
+<li><p>These can be added to Vim using the <a href="https://github.com/vim-syntastic/syntastic" target="_blank">Syntastic</a> plugin.</p>
+</li>
+</ul>
+<h2 id="debugger">Debugger</h2>
+<ul>
+<li>You can break into a Python debugging session from a script using the built in <code>pdb</code> package.</li>
+<li>Import it using <code>import pdb;</code></li>
+<li>At the point where you want to break into the debugger put <code>pdb.set_trace()</code></li>
+</ul>
+<h2 id="performance-tuning">Performance Tuning</h2>
+<ul>
+<li>Use timeit to compare small snippets of code <a href="https://docs.python.org/3.4/library/timeit.html" target="_blank">https://docs.python.org/3.4/library/timeit.html</a></li>
+</ul>
+<pre><code class="lang-python">$ python -m timeit <span class="hljs-string">&apos;&quot;-&quot;.join(str(n) for n in range(100))&apos;</span>
+<span class="hljs-number">10000</span> loops, best of <span class="hljs-number">3</span>: <span class="hljs-number">40.3</span> usec per loop
+</code></pre>
+<h2 id="named-tuples">Named Tuples</h2>
+<ul>
+<li>These are effectively structs in Python</li>
+<li>Attributes are read only - must use _replace to change them</li>
+<li><a href="https://docs.python.org/3/library/collections.html#namedtuple-factory-function-for-tuples-with-named-fields" target="_blank">https://docs.python.org/3/library/collections.html#namedtuple-factory-function-for-tuples-with-named-fields</a></li>
+</ul>
+<h2 id="unit-testing">Unit Testing</h2>
+<ul>
+<li>Assert that a function throws an exception - <a href="http://stackoverflow.com/questions/129507/how-do-you-test-that-a-python-function-throws-an-exception" target="_blank">http://stackoverflow.com/questions/129507/how-do-you-test-that-a-python-function-throws-an-exception</a></li>
+</ul>
+<h2 id="run-python-from-the-command-line">Run Python from the Command Line</h2>
+<ul>
+<li><code>python -c &quot;# python code here&quot;</code></li>
+</ul>
+<h2 id="python-exception-wrapping">Python Exception Wrapping</h2>
+<ul>
+<li>Doesn&apos;t work as you would think out of the box. The original exceptions trace is replaced by the new one.</li>
+<li>In an except block with <code>ex</code> as the exception instance, when reraising use <code>raise</code> instead of <code>raise ex</code></li>
+<li>If you want to raise a new Exception then you need to get the original traceback.</li>
+<li><a href="http://stackoverflow.com/questions/39949525/in-python-2-how-to-raise-a-python-error-without-changing-its-traceback?rq=1" target="_blank">http://stackoverflow.com/questions/39949525/in-python-2-how-to-raise-a-python-error-without-changing-its-traceback?rq=1</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="python-hard-way.html" class="navigation navigation-next " aria-label="Next page: Python Hard Way Notes">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Python","level":"1.2","depth":1,"next":{"title":"Python Hard Way Notes","level":"1.3","depth":1,"path":"python-hard-way.md","ref":"python-hard-way.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"python.md","mtime":"2017-08-21T22:13:53.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-09-18T15:43:11.983Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
