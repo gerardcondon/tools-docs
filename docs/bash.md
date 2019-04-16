@@ -77,3 +77,5 @@
 * Reset local master to be the same as the remote master branch
     git fetch origin
     git reset --hard origin/master
+
+* You have a local .gitignore file at `.git/info/excludes`
