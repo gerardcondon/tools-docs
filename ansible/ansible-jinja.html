@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Bash Scripting · Tools Documentation</title>
+        <title>Jinja · Tools Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../svn.html" />
+    <link rel="next" href="../python/python.html" />
     
     
-    <link rel="prev" href="../bash.html" />
+    <link rel="prev" href="ansible-playbooks.html" />
     
 
     </head>
@@ -495,9 +495,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.4.1" data-path="bash-scripting.html">
+        <li class="chapter " data-level="1.4.1" data-path="../bash/bash-scripting.html">
             
-                <a href="bash-scripting.html">
+                <a href="../bash/bash-scripting.html">
             
                     
                     Bash Scripting
@@ -526,9 +526,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6" data-path="../ansible/ansible.html">
+        <li class="chapter " data-level="1.6" data-path="ansible.html">
             
-                <a href="../ansible/ansible.html">
+                <a href="ansible.html">
             
                     
                     Ansible
@@ -540,9 +540,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.6.1" data-path="../ansible/ansible-playbooks.html">
+        <li class="chapter " data-level="1.6.1" data-path="ansible-playbooks.html">
             
-                <a href="../ansible/ansible-playbooks.html">
+                <a href="ansible-playbooks.html">
             
                     
                     Playbooks
@@ -553,9 +553,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.2" data-path="../ansible/ansible-jinja.html">
+        <li class="chapter active" data-level="1.6.2" data-path="ansible-jinja.html">
             
-                <a href="../ansible/ansible-jinja.html">
+                <a href="ansible-jinja.html">
             
                     
                     Jinja
@@ -756,7 +756,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Bash Scripting</a>
+        <a href=".." >Jinja</a>
     </h1>
 </div>
 
@@ -771,119 +771,26 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="bash-scripting">Bash Scripting</h1>
+                                <h1 id="jinja">Jinja</h1>
+<h2 id="filters">Filters</h2>
 <ul>
-<li>Create the file with a <code>.sh</code> extension.</li>
-<li>Chmod with some user <code>+x</code> to enable execution</li>
+<li>Part of <code>jinja2</code> but Ansible ships with its own also.</li>
+<li>Can transform data e.g. <code>{{ my_var | to_nice_json }}</code>.</li>
+<li>Can operate on lists e.g. <code>{{ list1 | min }}</code>.</li>
 </ul>
-<h2 id="running">Running</h2>
+<h2 id="tests">Tests</h2>
 <ul>
-<li>Can run directly from the command line e.g. <code>.my_script.sh</code></li>
-<li>Can run using <code>bash</code> command. This is useful for passing flags e.g. <code>bash -x my_script</code></li>
+<li>Used for comparison e.g. <code>url is match(&quot;http://blah&quot;)</code></li>
+<li>To test against strings use <code>match</code> or <code>search</code></li>
+<li>Can use <code>version(num, operator)</code> to check version</li>
+<li>Can use <code>issubset</code> and <code>issuperset</code> for list containment</li>
+<li>Can use <code>is directory</code>, <code>is file</code> etc for path operations</li>
+<li>Use tests in a <code>when:</code> clause to trigger</li>
 </ul>
-<h2 id="set-options">Set Options</h2>
+<h2 id="lookups">Lookups</h2>
 <ul>
-<li><code>set -x</code> - this displays each line that is executed</li>
-<li><code>set -u</code> - this does not allow unbound variables</li>
-<li><code>set -e</code> - aborts the script upon encountering an error</li>
-<li><code>set -o pipefail</code> - raises an error if any part of a pipeline command fails</li>
-<li>Reference - <a href="http://redsymbol.net/articles/unofficial-bash-strict-mode/" target="_blank">Bash&apos;s unofficial strict mode</a></li>
+<li>Way to query external data sources e.g. <code>&quot;{{ lookup(&apos;file&apos;, &apos;/etc/stuff&apos;) }}&quot;</code></li>
 </ul>
-<h2 id="linting">Linting</h2>
-<p><a href="https://github.com/koalaman/shellcheck" target="_blank">ShellCheck</a> is a linter for bash scripts. This is a Haskell program and can be installed through the package manager.</p>
-<p>If this is not available on your OS e.g. early versions of CentOS then they distribute it via <a href="https://www.docker.com/" target="_blank">Docker</a> images.</p>
-<pre><code>docker pull koalaman/shellcheck
-docker run -v $(pwd):/scripts koalaman/shellcheck /scripts/myscript.sh
-</code></pre><p>Need to invoke this with the <code>-x</code> argument to make it follow scripts that were sourced by the current script.</p>
-<p>To enable this option in Vim then add <code>let g:syntastic_sh_shellcheck_args = &quot;-x&quot;</code> to your .vimrc. See <a href="https://vi.stackexchange.com/questions/10007/how-to-make-syntastic-include-sourced-files-for-bash-syntax-as-shellcheck-x" target="_blank">here</a>.</p>
-<p>Google has a useful <a href="https://google.github.io/styleguide/shell.xml" target="_blank">style guide</a>.</p>
-<h2 id="logging">Logging</h2>
-<p>In order to prevent logging info getting mixed up with stdout or stderr we can log to a different bash file descriptor. Then the caller of the script can chose where to redirect the log to.</p>
-<pre><code>log() {
-    # If a file descriptor exists for stream 3 then log to it
-    if command &gt;&amp;3
-    then datestring=$(date +&apos;%Y-%m-%d %H:%M:%S&apos;)
-         echo &quot;$datestring $1&quot; &gt;&amp;3
-    fi 2&gt; /dev/null
-}
-</code></pre><p>Invoke the script using <code>./myscript.sh 3&gt;log.txt</code></p>
-<h2 id="functions-in-bash">Functions in Bash</h2>
-<p>You can create functions in bash but getting output from them is a bit tricky. The <code>return</code> statement in bash just returns a status code from the function. Instead you echo the output you want to stdout. The calling code wraps the call to the function with <code>$( )</code> and assigns it to a variable. Another way to get information out of a function is to assign values to global variables.</p>
-<pre><code>my_func() {
-    arg=$1
-    echo &quot;Output $arg&quot;
-    echo &quot;More output&quot;
-}
-
-my_var=$(my_func &quot;arg1&quot;)
-</code></pre><h2 id="source-file-organization">Source File Organization</h2>
-<p>You can include scripts from other scripts using the <code>source</code> keyword. This will execute the other script in place. All the function definitions are imported and all non function statements are executed.</p>
-<h2 id="arguments">Arguments</h2>
-<p>Can use getopts to check mandatory command line arguments.</p>
-<p>For lots of arguments it may be worth sourcing a config file instead. This allows the same params to be used by multiple different scripts.</p>
-<h3 id="sample">Sample</h3>
-<pre><code class="lang-bash"> <span class="hljs-comment">#!/bin/bash w</span>
- <span class="hljs-comment"># options explanation at http://redsymbol.net/articles/unofficial-bash-strict-mode/</span>
-<span class="hljs-built_in">set</span> -euo pipefail
-<span class="hljs-comment">#IFS=$&apos;\n\t&apos;</span>
-
-<span class="hljs-function"><span class="hljs-title">display_usage</span></span>() {
-    cat &lt;&lt;EOF
-    Usage: <span class="hljs-variable">$0</span> [options]
-
-    -h    Display the <span class="hljs-built_in">help</span> text
-    -c    Path to the config file
-EOF
-}
-
-<span class="hljs-function"><span class="hljs-title">check_mandatory_argument</span></span>() {
-    <span class="hljs-keyword">if</span> [[ -z <span class="hljs-string">&quot;<span class="hljs-variable">${!1:-}</span>&quot;</span> ]]; <span class="hljs-keyword">then</span>
-        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Missing required argument <span class="hljs-variable">${1}</span>.&quot;</span> &gt;&amp;2
-        display_usage &gt;&amp;2
-        <span class="hljs-built_in">exit</span> 1
-    <span class="hljs-keyword">fi</span>
-}
-
-<span class="hljs-function"><span class="hljs-title">check_mandatory_config_option</span></span>() {
-    <span class="hljs-keyword">if</span> [[ -z <span class="hljs-string">&quot;<span class="hljs-variable">${!1:-}</span>&quot;</span> ]]; <span class="hljs-keyword">then</span>
-        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Config File is missing required option <span class="hljs-variable">${1}</span>.&quot;</span> &gt;&amp;2
-        display_usage &gt;&amp;2
-        <span class="hljs-built_in">exit</span> 1
-    <span class="hljs-keyword">fi</span>
-}
-
-<span class="hljs-function"><span class="hljs-title">parse_arguments</span></span>() {
-    <span class="hljs-built_in">local</span> OPTIND
-    <span class="hljs-keyword">while</span> <span class="hljs-built_in">getopts</span> :hc: opt; <span class="hljs-keyword">do</span>
-    <span class="hljs-keyword">case</span> <span class="hljs-variable">$opt</span> <span class="hljs-keyword">in</span>
-        h)
-            display_usage
-            <span class="hljs-built_in">exit</span> 0
-            ;;
-        c)
-            config_file_path=<span class="hljs-variable">${OPTARG}</span>
-            ;;
-        \?) <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;An invalid option has been entered: <span class="hljs-variable">$OPTARG</span>&quot;</span>
-            display_usage &gt;&amp;2
-            <span class="hljs-built_in">exit</span> 1
-            ;;
-        :)
-            <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Option -<span class="hljs-variable">$OPTARG</span> requires an argument.&quot;</span> &gt;&amp;2
-            display_usage &gt;&amp;2
-            <span class="hljs-built_in">exit</span> 1
-            ;;
-        *)
-            display_usage &gt;&amp;2
-            <span class="hljs-built_in">exit</span> 1
-            ;;
-    <span class="hljs-keyword">esac</span>
-<span class="hljs-keyword">done</span>
-<span class="hljs-built_in">echo</span> <span class="hljs-variable">$config_file_path</span>
-}
-
-check_mandatory_argument <span class="hljs-string">&quot;arg1&quot;</span>
-check_mandatory_argument <span class="hljs-string">&quot;arg2&quot;</span>
-</code></pre>
 
                                 
                                 </section>
@@ -911,12 +818,12 @@ check_mandatory_argument <span class="hljs-string">&quot;arg2&quot;</span>
 
             
                 
-                <a href="../bash.html" class="navigation navigation-prev " aria-label="Previous page: Bash">
+                <a href="ansible-playbooks.html" class="navigation navigation-prev " aria-label="Previous page: Playbooks">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../svn.html" class="navigation navigation-next " aria-label="Next page: Subversion">
+                <a href="../python/python.html" class="navigation navigation-next " aria-label="Next page: Python">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -927,7 +834,7 @@ check_mandatory_argument <span class="hljs-string">&quot;arg2&quot;</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Bash Scripting","level":"1.4.1","depth":2,"next":{"title":"Subversion","level":"1.5","depth":1,"path":"svn.md","ref":"svn.md","articles":[]},"previous":{"title":"Bash","level":"1.4","depth":1,"path":"bash.md","ref":"bash.md","articles":[{"title":"Bash Scripting","level":"1.4.1","depth":2,"path":"bash/bash-scripting.md","ref":"bash/bash-scripting.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-sharing","collapsible-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gerard Condon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tools Documentation","links":{"sidebar":{"Gerard Condon":"http://www.gerardcondon.com","Github":"https://github.com/gerardcondon/tools-docs"}},"gitbook":"*"},"file":{"path":"bash/bash-scripting.md","mtime":"2019-04-16T10:21:19.844Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-16T10:22:02.722Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Jinja","level":"1.6.2","depth":2,"next":{"title":"Python","level":"1.7","depth":1,"path":"python/python.md","ref":"python/python.md","articles":[{"title":"Python Hard Way Notes","level":"1.7.1","depth":2,"path":"python/python-hard-way.md","ref":"python/python-hard-way.md","articles":[]},{"title":"Snippets","level":"1.7.2","depth":2,"path":"python/python-snippets.md","ref":"python/python-snippets.md","articles":[]},{"title":"PyTest","level":"1.7.3","depth":2,"path":"python/python-pytest.md","ref":"python/python-pytest.md","articles":[]}]},"previous":{"title":"Playbooks","level":"1.6.1","depth":2,"path":"ansible/ansible-playbooks.md","ref":"ansible/ansible-playbooks.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","collapsible-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gerard Condon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tools Documentation","links":{"sidebar":{"Gerard Condon":"http://www.gerardcondon.com","Github":"https://github.com/gerardcondon/tools-docs"}},"gitbook":"*"},"file":{"path":"ansible/ansible-jinja.md","mtime":"2019-04-16T10:21:19.844Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-16T10:22:02.722Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
