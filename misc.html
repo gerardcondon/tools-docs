@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Subversion · Tools Documentation</title>
+        <title>Misc · Tools Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,8 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="ansible/ansible.html" />
     
-    
-    <link rel="prev" href="bash/bash-scripting.html" />
+    <link rel="prev" href="kubernetes.html" />
     
 
     </head>
@@ -513,7 +511,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5" data-path="svn.html">
+        <li class="chapter " data-level="1.5" data-path="svn.html">
             
                 <a href="svn.html">
             
@@ -734,7 +732,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.7" data-path="misc.html">
+        <li class="chapter active" data-level="1.9.7" data-path="misc.html">
             
                 <a href="misc.html">
             
@@ -782,7 +780,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Subversion</a>
+        <a href="." >Misc</a>
     </h1>
 </div>
 
@@ -797,16 +795,14 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="subversion">Subversion</h1>
-<h2 id="creating-a-branch">Creating a branch</h2>
+                                <h1 id="misc-topics">Misc Topics</h1>
+<h2 id="error-handling">Error Handling</h2>
 <ul>
-<li>Effectively doing an optimized copy on the server</li>
-<li><code>svn copy origin_url new_branch_url -m &quot;Creating a branch to ...&quot;</code></li>
+<li>Centralise Logging e.g. ELK</li>
+<li>Intermittent/Non Critical Errors. Keep a counter and when a threshold is reached, log it</li>
+<li>Tag or Label logs. Could log as json or some structured format. Makes it easier to query.</li>
 </ul>
-<h2 id="periodically-merge-trunk-to-branch">Periodically merge trunk to branch</h2>
-<ul>
-<li><code>svn merge ^/trunk</code></li>
-</ul>
+<p>Reference <a href="https://www.openmymind.net/Basic-Brain-Dump-On-Dealing-With-Errors/" target="_blank">1</a></p>
 
                                 
                                 </section>
@@ -834,14 +830,10 @@
 
             
                 
-                <a href="bash/bash-scripting.html" class="navigation navigation-prev " aria-label="Previous page: Bash Scripting">
+                <a href="kubernetes.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Kubernetes">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="ansible/ansible.html" class="navigation navigation-next " aria-label="Next page: Ansible">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -850,7 +842,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Subversion","level":"1.5","depth":1,"next":{"title":"Ansible","level":"1.6","depth":1,"path":"ansible/ansible.md","ref":"ansible/ansible.md","articles":[{"title":"Playbooks","level":"1.6.1","depth":2,"path":"ansible/ansible-playbooks.md","ref":"ansible/ansible-playbooks.md","articles":[]},{"title":"Jinja","level":"1.6.2","depth":2,"path":"ansible/ansible-jinja.md","ref":"ansible/ansible-jinja.md","articles":[]}]},"previous":{"title":"Bash Scripting","level":"1.4.1","depth":2,"path":"bash/bash-scripting.md","ref":"bash/bash-scripting.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","collapsible-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gerard Condon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tools Documentation","links":{"sidebar":{"Gerard Condon":"http://www.gerardcondon.com","Github":"https://github.com/gerardcondon/tools-docs"}},"gitbook":"*"},"file":{"path":"svn.md","mtime":"2019-04-17T10:51:03.685Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-17T10:51:49.501Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Misc","level":"1.9.7","depth":2,"previous":{"title":"Kubernetes","level":"1.9.6","depth":2,"path":"kubernetes.md","ref":"kubernetes.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","collapsible-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gerard Condon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tools Documentation","links":{"sidebar":{"Gerard Condon":"http://www.gerardcondon.com","Github":"https://github.com/gerardcondon/tools-docs"}},"gitbook":"*"},"file":{"path":"misc.md","mtime":"2019-04-17T10:51:03.629Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-17T10:51:49.501Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

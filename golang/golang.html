@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Basics · Tools Documentation</title>
+        <title>Golang · Tools Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="configuring-tmux.html" />
     
-    
-    <link rel="prev" href="readme.html" />
+    <link rel="prev" href="../python/python-pytest.html" />
     
 
     </head>
@@ -436,9 +434,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="readme.html">
+        <li class="chapter " data-level="1.3" data-path="../tmux/readme.html">
             
-                <a href="readme.html">
+                <a href="../tmux/readme.html">
             
                     
                     Tmux
@@ -450,9 +448,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.3.1" data-path="tmux.html">
+        <li class="chapter " data-level="1.3.1" data-path="../tmux/tmux.html">
             
-                <a href="tmux.html">
+                <a href="../tmux/tmux.html">
             
                     
                     Basics
@@ -463,9 +461,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="configuring-tmux.html">
+        <li class="chapter " data-level="1.3.2" data-path="../tmux/configuring-tmux.html">
             
-                <a href="configuring-tmux.html">
+                <a href="../tmux/configuring-tmux.html">
             
                     
                     Configuring
@@ -629,9 +627,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.8" data-path="../golang/golang.html">
+        <li class="chapter active" data-level="1.8" data-path="golang.html">
             
-                <a href="../golang/golang.html">
+                <a href="golang.html">
             
                     
                     Golang
@@ -782,7 +780,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Basics</a>
+        <a href=".." >Golang</a>
     </h1>
 </div>
 
@@ -797,117 +795,22 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="tmux">TMUX</h1>
-<h2 id="what-is-tmux">What is tmux</h2>
+                                <h1 id="golang">Golang</h1>
+<h2 id="go-blog">Go Blog</h2>
 <ul>
-<li>tmux is a terminal multiplexer.</li>
-<li>It can launch multiple terminals from a single environment - effectively new terminal tabs</li>
-<li>It can divide the window into panes</li>
-<li>It can detach from a session and keep it running in the background</li>
+<li>[Go Blog])(<a href="https://blog.golang.org/" target="_blank">https://blog.golang.org/</a>) Official Go Blog</li>
+<li><a href="https://blog.golang.org/pipelines" target="_blank">Pipelines</a> Go Concurrency Patterns: Pipelines and cancellation</li>
 </ul>
-<h2 id="installation">Installation</h2>
+<h2 id="cross-compiling">Cross Compiling</h2>
 <ul>
-<li>You can install tmux using a package manager e.g. <code>sudo yum install tmux</code></li>
-<li>However the version that this uses may be quite old so another approach is to build it yourself from source<ul>
-<li>This script here details the steps needed <a href="https://gist.github.com/xkniu/0b752143a5990cdb3379" target="_blank">https://gist.github.com/xkniu/0b752143a5990cdb3379</a></li>
-<li>To get libevent 2.x installed I ran <code>sudo yum install libevent2-devel</code></li>
+<li>Can easily compile for other OSes and languages from Linux by changing some environement variables <a href="https://golangcookbook.com/chapters/running/cross-compiling/" target="_blank">https://golangcookbook.com/chapters/running/cross-compiling/</a></li>
 </ul>
-</li>
-</ul>
-<h2 id="basic-usage">Basic usage</h2>
+<h2 id="references">References</h2>
 <ul>
-<li><code>PREFIX</code> - this is the tmux prefix. By default this is <code>ctrl-b</code> but you can remap this to an easier key. The most common one I&apos;ve seen is to remap it to <code>ctrl-a</code>. This works especially well if you also remap the <code>Caps Lock</code> key to <code>Ctrl</code>.</li>
-</ul>
-<h2 id="tmux-sessions">Tmux Sessions</h2>
-<p>Typically these commands would be run outside the tmux session</p>
-<ul>
-<li><code>tmux new -s session_name</code> - create a new session with the given session name<ul>
-<li>pass the <code>-d</code> flag to create this session in the background</li>
-</ul>
-</li>
-<li><code>tmux ls</code> - list the running sessions<ul>
-<li>if there are no running sessions then you will see this error <code>failed to connect to server: Connection refused</code></li>
-</ul>
-</li>
-<li><code>tmux attach</code> - if there is only one session running then attach to it</li>
-<li><code>tmux attach -t session_name</code> - attach to a specified session</li>
-<li><code>tmux kill-session -t session_name</code> - kill the session specifed by the session name</li>
-</ul>
-<p>Typically these commands would be run from inside tmux session</p>
-<ul>
-<li><code>PREFIX d</code> - detach from a session. This keeps the session alive and allows you to reconnect to it later.</li>
-<li><code>exit</code> - exits tmux and kills session</li>
-</ul>
-<h2 id="windows">Windows</h2>
-<ul>
-<li>Windows in Tmux are a collection of panes.</li>
-<li>They are similar to tabs in a browser.</li>
-<li>Killing all open windows will kill the tmux session.</li>
-</ul>
-<ul>
-<li><code>PREFIX c</code> - Create a new window with a shell</li>
-<li><code>PREFIX ,</code> - We can name windows so that we can more easily identify them later. This command renames the current window.</li>
-<li><p><code>PREFIX &amp;</code> - Kill the current window</p>
-</li>
-<li><p>Closing windows by default will not renumber the existing windows.</p>
-<ul>
-<li>Use <code>movem</code> to renumber the current window</li>
-<li>Use <code>movew -r</code> to renumber all the windows</li>
-<li>TODO Add <code>set-option -g renumber-windows on</code> to the <code>tmux.conf</code> to enable automatic renumbering.</li>
-</ul>
-</li>
-</ul>
-<h3 id="windows-navigation">Windows Navigation</h3>
-<ul>
-<li><code>PREFIX p</code> - move to the previous window</li>
-<li><code>PREFIX n</code> - move to the next window</li>
-<li><code>PREFIX w</code> - display a visual menu of the windows. Select window and press enter</li>
-<li><code>PREFIX &amp;</code> - kill the current window</li>
-</ul>
-<p>Each window has an index and we can jump to a window directly if we know its index</p>
-<ul>
-<li><code>PREFIX x</code> - x is any digit between 0 and 9. Jump to the window with the given index.</li>
-<li><p>Having 0 based windows isn&apos;t great considering the layout of the number keys on a keyboard. We can make the indexes start from 1 by adding <code>setw -g base-index 1</code> to our <code>~/.tmux.conf</code> file</p>
-</li>
-<li><p>We can find a window by name by typing <code>PREFIX f</code></p>
-</li>
-</ul>
-<h2 id="panes">Panes</h2>
-<ul>
-<li>We can split the current window into panes both horizontally and vertically</li>
-<li><code>PREFIX %</code> - splits the window vertically</li>
-<li><code>PREFIX *</code> - splits the window horizontally</li>
-<li><p>To make this easier we remap this to use the | and - keys to create the appropriate split <code>bind | split-window -h</code> and <code>bind - split-window -v</code></p>
-</li>
-<li><p><code>PREFIX o</code> - cycle to the next pane</p>
-</li>
-<li><p>can use <code>PREFIX</code> followed by the arrow keys to move around the panes.</p>
-</li>
-<li><p><code>PREFIX x</code> - kill the current pane. If this was the only pane then this closes the window also.</p>
-</li>
-</ul>
-<h3 id="resizing">Resizing</h3>
-<ul>
-<li>Tmux has a number of predefined layouts for panes</li>
-<li>Cycle through these using <code>PREFIX SPACEBAR</code><ul>
-<li><code>even-horizontal</code></li>
-<li><code>even-vertical</code></li>
-<li><code>main-horizontal</code></li>
-<li><code>main-vertical</code></li>
-<li><code>tiled</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="command-mode">Command Mode</h2>
-<ul>
-<li>These prefix combinations are actually shortcuts to tmux commands with preset options.</li>
-<li>You can invoke these directly from the command mode or scripts</li>
-<li>Press <code>:</code> to enter command mode</li>
-<li><code>PREFIX ?</code> - list all the tmux bindings</li>
-</ul>
-<h2 id="resources">Resources</h2>
-<ul>
-<li><a href="https://pragprog.com/book/bhtmux/tmux" target="_blank">tmux - Productive Mouse-Free Development</a> by Brian P. Hogan</li>
+<li><a href="https://godoc.org/" target="_blank">GoDoc</a> GoDoc hosts documentation for Go packages on Bitbucket, GitHub, Google Project Hosting and Launchpad.</li>
+<li><a href="https://tour.golang.org/list" target="_blank">A Tour of Go</a> Explanation of core Go features along with sample code</li>
+<li><a href="https://golangcookbook.com/" target="_blank">Go Cookbook</a> A work in progress site for performing various tasks in Go</li>
+<li><a href="https://www.openmymind.net/The-Little-Go-Book/" target="_blank">The Little Go Book</a> Introduduction to Go.</li>
 </ul>
 
                                 
@@ -936,14 +839,10 @@
 
             
                 
-                <a href="readme.html" class="navigation navigation-prev " aria-label="Previous page: Tmux">
+                <a href="../python/python-pytest.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: PyTest">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="configuring-tmux.html" class="navigation navigation-next " aria-label="Next page: Configuring">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -952,7 +851,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Basics","level":"1.3.1","depth":2,"next":{"title":"Configuring","level":"1.3.2","depth":2,"path":"tmux/configuring-tmux.md","ref":"tmux/configuring-tmux.md","articles":[]},"previous":{"title":"Tmux","level":"1.3","depth":1,"path":"tmux/readme.md","ref":"tmux/readme.md","articles":[{"title":"Basics","level":"1.3.1","depth":2,"path":"tmux/tmux.md","ref":"tmux/tmux.md","articles":[]},{"title":"Configuring","level":"1.3.2","depth":2,"path":"tmux/configuring-tmux.md","ref":"tmux/configuring-tmux.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-sharing","collapsible-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gerard Condon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tools Documentation","links":{"sidebar":{"Gerard Condon":"http://www.gerardcondon.com","Github":"https://github.com/gerardcondon/tools-docs"}},"gitbook":"*"},"file":{"path":"tmux/tmux.md","mtime":"2019-04-17T10:51:03.685Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-17T10:51:49.501Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Golang","level":"1.8","depth":1,"next":{"title":"Misc","level":"1.9","depth":1,"ref":"","articles":[{"title":"Ack","level":"1.9.1","depth":2,"path":"ack.md","ref":"ack.md","articles":[]},{"title":"Stow","level":"1.9.2","depth":2,"path":"stow.md","ref":"stow.md","articles":[]},{"title":"Docker","level":"1.9.3","depth":2,"path":"docker.md","ref":"docker.md","articles":[]},{"title":"Tsung","level":"1.9.4","depth":2,"path":"tsung.md","ref":"tsung.md","articles":[]},{"title":"Vault","level":"1.9.5","depth":2,"path":"vault.md","ref":"vault.md","articles":[]},{"title":"Kubernetes","level":"1.9.6","depth":2,"path":"kubernetes.md","ref":"kubernetes.md","articles":[]},{"title":"Misc","level":"1.9.7","depth":2,"path":"misc.md","ref":"misc.md","articles":[]}]},"previous":{"title":"PyTest","level":"1.7.3","depth":2,"path":"python/python-pytest.md","ref":"python/python-pytest.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","collapsible-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gerard Condon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tools Documentation","links":{"sidebar":{"Gerard Condon":"http://www.gerardcondon.com","Github":"https://github.com/gerardcondon/tools-docs"}},"gitbook":"*"},"file":{"path":"golang/golang.md","mtime":"2019-04-17T10:51:03.625Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-17T10:51:49.501Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
