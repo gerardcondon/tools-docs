@@ -32,9 +32,10 @@
   * [Playbooks](ansible/ansible-playbooks.md)
   * [Jinja](ansible/ansible-jinja.md)
 * [Python](python/python.md)
-    * [Python Hard Way Notes](python/python-hard-way.md)
-    * [Snippets](python/python-snippets.md)
-    * [PyTest](python/python-pytest.md)
+  * [Python Hard Way Notes](python/python-hard-way.md)
+  * [Snippets](python/python-snippets.md)
+  * [PyTest](python/python-pytest.md)
+* [Golang](golang/golang.md)
 * Misc
   * [Ack](ack.md)
   * [Stow](stow.md)
@@ -42,3 +43,4 @@
   * [Tsung](tsung.md)
   * [Vault](vault.md)
   * [Kubernetes](kubernetes.md)
+  * [Misc](misc.md)
