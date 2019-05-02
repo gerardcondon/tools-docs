@@ -80,6 +80,11 @@ $ python -m timeit '"-".join(str(n) for n in range(100))'
 * Can be passed around in a variable or to a function as an argument
 * `x = lambda a, b : a * b`
 
+## Itertools Recipes
+
+* Lots of [small functions](https://docs.python.org/3.3/library/itertools.html#itertools-recipes) for working with iterables
+* For example `grouper` and `pairwise` for iterating over multiple values in a list at the same time. 
+
 [Flake8]: https://pypi.python.org/pypi/flake8/
 [Pylint]: https://www.pylint.org/
 [Bandit]: https://github.com/openstack/bandit
