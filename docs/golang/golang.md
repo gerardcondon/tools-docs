@@ -28,10 +28,10 @@
 * [Golang Tools](https://godoc.org/golang.org/x/tools) list of extra Golang tools
 * [Golang Race Detector](https://golang.org/doc/articles/race_detector.html) tool to detect data races. Can be used for tests and also running programs
 
-
 ## References
 
 * [A Tour of Go](https://tour.golang.org/list) Explanation of core Go features along with sample code
 * [Go Cookbook](https://golangcookbook.com/) A work in progress site for performing various tasks in Go
 * [The Little Go Book](https://www.openmymind.net/The-Little-Go-Book/) Introduduction to Go.
 * [Go by Example](https://gobyexample.com/)
+* [Golang Bot](https://golangbot.com/) A large series of tutorials in the Golang language
