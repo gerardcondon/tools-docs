@@ -85,6 +85,19 @@ $ python -m timeit '"-".join(str(n) for n in range(100))'
 * Lots of [small functions](https://docs.python.org/3.3/library/itertools.html#itertools-recipes) for working with iterables
 * For example `grouper` and `pairwise` for iterating over multiple values in a list at the same time. 
 
+## Writing Command Line Tools in Python
+
+* [Click](https://palletsprojects.com/p/click/) is a good library to help for describing options and generating help pages.
+* Can have variadic arguments e.g. to process multiple files
+```python  
+@click.command()
+@click.argument('files', nargs=-1, help="List of files.")
+def my_cmd(files):
+```
+* Tutorials for using Click - [kite.com](https://kite.com/blog/python/python-command-line-click-tutorial/), [Basic](https://dbader.org/blog/python-commandline-tools-with-click), [Advanced](https://dbader.org/blog/mastering-click-advanced-python-command-line-apps), [PYM](https://pymbook.readthedocs.io/en/latest/click.html)
+* Use [TDQM](https://pypi.org/project/tqdm/) to create progress bars - just wrap whatever iterable you are already using e.g. `for f in tqdm(files):`
+
+
 [Flake8]: https://pypi.python.org/pypi/flake8/
 [Pylint]: https://www.pylint.org/
 [Bandit]: https://github.com/openstack/bandit
