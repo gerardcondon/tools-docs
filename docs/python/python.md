@@ -97,7 +97,24 @@ def my_cmd(files):
 * Tutorials for using Click - [kite.com](https://kite.com/blog/python/python-command-line-click-tutorial/), [Basic](https://dbader.org/blog/python-commandline-tools-with-click), [Advanced](https://dbader.org/blog/mastering-click-advanced-python-command-line-apps), [PYM](https://pymbook.readthedocs.io/en/latest/click.html)
 * Use [TDQM](https://pypi.org/project/tqdm/) to create progress bars - just wrap whatever iterable you are already using e.g. `for f in tqdm(files):`
 
+### FileSystem
+* Built in libraries `os.path` and `os.pathlib` for dealing with Paths. Pathlib is a higher level library. 
+* `os.path` contain functions like `isdir` and `exists` for operating on paths.
+* `os.scandir` can get the contents of a directory as a list. Special entries `.` and `..` are not included.
+* `os.pathlib` contains a `read_text` function for reading the entire contents of a file.
 
+### DataClasses
+* Add fields to classes and auto generate the required constructor, eq etc.
+* On Python 3.6 can use the backport available via pip
+* Can give types and default values to the fields e.g. `total: int = 0`
+* Can add factory lambdas/methods for fields e.g. initialise a timestamp to current time
+
+### Flask
+* Use to create web servers
+* Use [flask_restplus][] to add more fucntionality for REST APIs e.g. autogenerate Swagger docs.
+* `api` object has built in logger. By default logs input requests
+
+[flask_restplus]: https://flask-restplus.readthedocs.io/en/latest/index.html
 [Flake8]: https://pypi.python.org/pypi/flake8/
 [Pylint]: https://www.pylint.org/
 [Bandit]: https://github.com/openstack/bandit
