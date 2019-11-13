@@ -33,8 +33,11 @@ def memoize(func):
 
 * Reference - [Ned Batchelder](https://nedbatchelder.com/blog/201601/isolated_memoize.html)
 
-## Misc
+## File
+* list all entries in a directory - `return [f.name for f in os.scandir(self.data_folder) if f.is_dir()]`
+* read contents of a file - `contents = Path(file_path).read_text()`
 
+## Misc
 * Combine array of strings to single string `''.join(str_list)`
 * String interpolation `"Input string goes here %s" % str_value`
 * To convert a list of strings in the correct order to a NamedTuple use `MyNamedTuple._make(str_list)`
