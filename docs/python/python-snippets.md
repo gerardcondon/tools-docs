@@ -41,9 +41,21 @@ def memoize(func):
 * Combine array of strings to single string `''.join(str_list)`
 * String interpolation `"Input string goes here %s" % str_value`
 * To convert a list of strings in the correct order to a NamedTuple use `MyNamedTuple._make(str_list)`
+* Sort list using `sorted(my_list)`
+* Pretty print json using `python3 -m json.tool`
 
 ## Map
 * Map a function on a list `list(map(func, orig_list))`
 * Can use a lambda if you want to modify the element `list(map(lambda x: func(x.foo()), orig_list))`
 * Result can be passed to functions like `list()` or `set()`
 * Equivalent to list comprehensions `[func(x) for x in orig_list]`
+
+## Reading from Excel File
+
+* Use the `xlrd` library
+```
+wb = xlrd.open_workbook(loc)  
+sheet = wb.sheet_by_name("My sheet")
+for row in sheet.get_rows()
+    # Do something with row[col_number].value
+```
