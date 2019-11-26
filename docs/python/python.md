@@ -11,6 +11,11 @@ I created this document as I was learning Python and it archives some of the too
 * [Pep8](https://www.python.org/dev/peps/pep-0008/) seems to be the standard coding guidlines for Python. It is based on the original standards that Guido van Rossum created.
 * Example Google DocString [style](http://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html)
 
+## Whitespace
+
+* Linters can give guidance as to the appropriate amount of indentation
+* To split lines, especially strings, wrap the whole expression in brackets and then line can be split anywhere. Some operators can also be used to split lines e.g. + to append strings. This is better than using the `\` line continuation as whitespace after that character will mess up the program.
+
 ## Tools
 
 There are a number of tools written to check the quality of Python code. These will typically check the Pep8 standard along with other coding best practice checks.
@@ -112,7 +117,9 @@ def my_cmd(files):
 ### Flask
 * Use to create web servers
 * Use [flask_restplus][] to add more fucntionality for REST APIs e.g. autogenerate Swagger docs.
-* `api` object has built in logger. By default logs input requests
+* `api` object has built in logger. By default logs input requests. Can use the standard Python [logging](https://docs.python.org/3/howto/logging.html#logging-basic-tutorial) features to control it.
+* Can use sys.argv to pass command line arguments to it
+* To expose on the network then [bind to 0.0.0.0](https://stackoverflow.com/a/7027113/1131820).
 
 [flask_restplus]: https://flask-restplus.readthedocs.io/en/latest/index.html
 [Flake8]: https://pypi.python.org/pypi/flake8/
