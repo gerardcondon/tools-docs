@@ -808,6 +808,11 @@
 <li><a href="https://www.python.org/dev/peps/pep-0008/" target="_blank">Pep8</a> seems to be the standard coding guidlines for Python. It is based on the original standards that Guido van Rossum created.</li>
 <li>Example Google DocString <a href="http://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html" target="_blank">style</a></li>
 </ul>
+<h2 id="whitespace">Whitespace</h2>
+<ul>
+<li>Linters can give guidance as to the appropriate amount of indentation</li>
+<li>To split lines, especially strings, wrap the whole expression in brackets and then line can be split anywhere. Some operators can also be used to split lines e.g. + to append strings. This is better than using the <code>\</code> line continuation as whitespace after that character will mess up the program.</li>
+</ul>
 <h2 id="tools">Tools</h2>
 <p>There are a number of tools written to check the quality of Python code. These will typically check the Pep8 standard along with other coding best practice checks.</p>
 <ul>
@@ -891,6 +896,28 @@
 <li>Tutorials for using Click - <a href="https://kite.com/blog/python/python-command-line-click-tutorial/" target="_blank">kite.com</a>, <a href="https://dbader.org/blog/python-commandline-tools-with-click" target="_blank">Basic</a>, <a href="https://dbader.org/blog/mastering-click-advanced-python-command-line-apps" target="_blank">Advanced</a>, <a href="https://pymbook.readthedocs.io/en/latest/click.html" target="_blank">PYM</a></li>
 <li>Use <a href="https://pypi.org/project/tqdm/" target="_blank">TDQM</a> to create progress bars - just wrap whatever iterable you are already using e.g. <code>for f in tqdm(files):</code></li>
 </ul>
+<h3 id="filesystem">FileSystem</h3>
+<ul>
+<li>Built in libraries <code>os.path</code> and <code>os.pathlib</code> for dealing with Paths. Pathlib is a higher level library. </li>
+<li><code>os.path</code> contain functions like <code>isdir</code> and <code>exists</code> for operating on paths.</li>
+<li><code>os.scandir</code> can get the contents of a directory as a list. Special entries <code>.</code> and <code>..</code> are not included.</li>
+<li><code>os.pathlib</code> contains a <code>read_text</code> function for reading the entire contents of a file.</li>
+</ul>
+<h3 id="dataclasses">DataClasses</h3>
+<ul>
+<li>Add fields to classes and auto generate the required constructor, eq etc.</li>
+<li>On Python 3.6 can use the backport available via pip</li>
+<li>Can give types and default values to the fields e.g. <code>total: int = 0</code></li>
+<li>Can add factory lambdas/methods for fields e.g. initialise a timestamp to current time</li>
+</ul>
+<h3 id="flask">Flask</h3>
+<ul>
+<li>Use to create web servers</li>
+<li>Use <a href="https://flask-restplus.readthedocs.io/en/latest/index.html" target="_blank">flask_restplus</a> to add more fucntionality for REST APIs e.g. autogenerate Swagger docs.</li>
+<li><code>api</code> object has built in logger. By default logs input requests. Can use the standard Python <a href="https://docs.python.org/3/howto/logging.html#logging-basic-tutorial" target="_blank">logging</a> features to control it.</li>
+<li>Can use sys.argv to pass command line arguments to it</li>
+<li>To expose on the network then <a href="https://stackoverflow.com/a/7027113/1131820" target="_blank">bind to 0.0.0.0</a>.</li>
+</ul>
 
                                 
                                 </section>
@@ -934,7 +961,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Python","level":"1.7","depth":1,"next":{"title":"Python Hard Way Notes","level":"1.7.1","depth":2,"path":"python/python-hard-way.md","ref":"python/python-hard-way.md","articles":[]},"previous":{"title":"Jinja","level":"1.6.2","depth":2,"path":"ansible/ansible-jinja.md","ref":"ansible/ansible-jinja.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","collapsible-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gerard Condon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tools Documentation","links":{"sidebar":{"Gerard Condon":"http://www.gerardcondon.com","Github":"https://github.com/gerardcondon/tools-docs"}},"gitbook":"*"},"file":{"path":"python/python.md","mtime":"2019-11-13T11:38:02.813Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-13T11:38:55.920Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Python","level":"1.7","depth":1,"next":{"title":"Python Hard Way Notes","level":"1.7.1","depth":2,"path":"python/python-hard-way.md","ref":"python/python-hard-way.md","articles":[]},"previous":{"title":"Jinja","level":"1.6.2","depth":2,"path":"ansible/ansible-jinja.md","ref":"ansible/ansible-jinja.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","collapsible-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gerard Condon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tools Documentation","links":{"sidebar":{"Gerard Condon":"http://www.gerardcondon.com","Github":"https://github.com/gerardcondon/tools-docs"}},"gitbook":"*"},"file":{"path":"python/python.md","mtime":"2019-11-26T13:59:29.176Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-26T14:00:09.924Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
