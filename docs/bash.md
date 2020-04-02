@@ -67,6 +67,7 @@
 ## AWK
 
 * Awk [tips and tricks](http://blog.jpalardy.com/posts/my-best-awk-tricks/)
+* Print first field in a string `awk '{print $1}'`
 
 ## Replace common prefix of files
 
@@ -81,3 +82,16 @@
 ```
 * You have a local .gitignore file at `.git/info/excludes`
 * Pass `--remote` to the submodule update command to always pull the latest for that submodule.
+* Change previous commit message `git commit --amend -m "an updated commit message"`
+* Add a new remote `git remote add [remote name] [remote url]` 
+
+## Misc
+
+* Resolve the ipaddress of any host. One of the following should work depending on what's on your system. The `getent` approach should definitely work as it only depends on `glibc` which should be on every linux box.
+ 	* `getent hosts unix.stackexchange.com | awk '{ print $1 }'`
+ 	* `dig +short unix.stackexchange.com`
+ 	* `host unix.stackexchange.com | awk '/has address/ { print $4 }'`
+	* `nslookup unix.stackexchange.com | awk '/^Address: / { print $2 }'`
+* Instead of creating an alias that takes a parameter you can create a function to do so and export that from the `bashrc`
+* To disable strict host checking in ssh can use `ssh -o StrictHostKeyChecking=no`
+* Follow redirects in curl with `curl -L`
