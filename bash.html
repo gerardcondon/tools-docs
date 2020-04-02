@@ -867,6 +867,7 @@
 <h2 id="awk">AWK</h2>
 <ul>
 <li>Awk <a href="http://blog.jpalardy.com/posts/my-best-awk-tricks/" target="_blank">tips and tricks</a></li>
+<li>Print first field in a string <code>awk &apos;{print $1}&apos;</code></li>
 </ul>
 <h2 id="replace-common-prefix-of-files">Replace common prefix of files</h2>
 <ul>
@@ -879,6 +880,23 @@
 </code></pre></li>
 <li>You have a local .gitignore file at <code>.git/info/excludes</code></li>
 <li>Pass <code>--remote</code> to the submodule update command to always pull the latest for that submodule.</li>
+<li>Change previous commit message <code>git commit --amend -m &quot;an updated commit message&quot;</code></li>
+<li>Add a new remote <code>git remote add [remote name] [remote url]</code> </li>
+</ul>
+<h2 id="misc">Misc</h2>
+<ul>
+<li>Resolve the ipaddress of any host. One of the following should work depending on what&apos;s on your system. The <code>getent</code> approach should definitely work as it only depends on <code>glibc</code> which should be on every linux box.<ul>
+<li><code>getent hosts unix.stackexchange.com | awk &apos;{ print $1 }&apos;</code></li>
+<li><code>dig +short unix.stackexchange.com</code></li>
+<li><code>host unix.stackexchange.com | awk &apos;/has address/ { print $4 }&apos;</code><ul>
+<li><code>nslookup unix.stackexchange.com | awk &apos;/^Address: / { print $2 }&apos;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Instead of creating an alias that takes a parameter you can create a function to do so and export that from the <code>bashrc</code></li>
+<li>To disable strict host checking in ssh can use <code>ssh -o StrictHostKeyChecking=no</code></li>
+<li>Follow redirects in curl with <code>curl -L</code></li>
 </ul>
 
                                 
@@ -923,7 +941,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Bash","level":"1.4","depth":1,"next":{"title":"Bash Scripting","level":"1.4.1","depth":2,"path":"bash/bash-scripting.md","ref":"bash/bash-scripting.md","articles":[]},"previous":{"title":"Configuring","level":"1.3.2","depth":2,"path":"tmux/configuring-tmux.md","ref":"tmux/configuring-tmux.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","collapsible-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gerard Condon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tools Documentation","links":{"sidebar":{"Gerard Condon":"http://www.gerardcondon.com","Github":"https://github.com/gerardcondon/tools-docs"}},"gitbook":"*"},"file":{"path":"bash.md","mtime":"2020-04-02T15:21:13.458Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-02T15:22:26.092Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Bash","level":"1.4","depth":1,"next":{"title":"Bash Scripting","level":"1.4.1","depth":2,"path":"bash/bash-scripting.md","ref":"bash/bash-scripting.md","articles":[]},"previous":{"title":"Configuring","level":"1.3.2","depth":2,"path":"tmux/configuring-tmux.md","ref":"tmux/configuring-tmux.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","collapsible-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gerard Condon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tools Documentation","links":{"sidebar":{"Gerard Condon":"http://www.gerardcondon.com","Github":"https://github.com/gerardcondon/tools-docs"}},"gitbook":"*"},"file":{"path":"bash.md","mtime":"2020-04-02T15:23:56.631Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-02T15:24:48.499Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
