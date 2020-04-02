@@ -35,3 +35,7 @@
 * [The Little Go Book](https://www.openmymind.net/The-Little-Go-Book/) Introduduction to Go.
 * [Go by Example](https://gobyexample.com/)
 * [Golang Bot](https://golangbot.com/) A large series of tutorials in the Golang language
+
+## Misc
+
+* Set and Get env variables during unit testing using `os.Setenv` and `os.Getenv`
