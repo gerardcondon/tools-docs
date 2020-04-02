@@ -95,3 +95,4 @@
 * Instead of creating an alias that takes a parameter you can create a function to do so and export that from the `bashrc`
 * To disable strict host checking in ssh can use `ssh -o StrictHostKeyChecking=no`
 * Follow redirects in curl with `curl -L`
+* To get the current time use the `date` command
