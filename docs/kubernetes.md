@@ -95,3 +95,12 @@
 
 * Can be invoked using curl
 * [Docs](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.11/#-strong-api-overview-strong-)
+
+## Misc
+* For CrashLoopBackoff use
+	* `kubectl describe pod [podname]` to get more information on that pod
+	* `kubectl logs [podname] -p` to see the logs of the previous crashed instance
+* Add entries to hosts file using HostAliases https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/. Don't edit /etc/hosts directly as this can be overwritten. 
+* To execute multiple commands use 
+	command: ["/bin/sh","-c"]
+	args: ["command one; command two; command three"]
