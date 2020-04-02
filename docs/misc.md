@@ -19,3 +19,12 @@ Reference [1](https://www.openmymind.net/Basic-Brain-Dump-On-Dealing-With-Errors
 * [Update API](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/docs-update.html)
 
 * You can't rename an index but you can copy the data from one index to another using a [`reindex`](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/docs-reindex.html) command.
+
+## Sublime Text
+
+* [Change line endings](https://medium.com/@Rascle/fix-line-endings-in-sublime-text-3-35d926d1c041) from Windows to Unix i.e. CRLF to LF
+* Make the line endings visible in the bottom status bar by setting `"show_line_endings": true`
+
+## NPM
+
+* On WSL installing and using NPM directly can give lots of errors about [invalid permissions](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally) when trying to install applications globally. To fix this install [NVM](https://github.com/nvm-sh/nvm) and use that to run NPM.
